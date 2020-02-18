@@ -231,6 +231,6 @@ class __TwigTemplate_7d211db6010526407416f67edcedc5a36702c6d3089b11a1761a6d99a58
         </div>
         <!--row closed-->
 {{ form_end(form) }}
-{% endblock %}", "@Events/Events/ajout.html.twig", "C:\\wamp64\\www\\PIDEV\\src\\EventsBundle\\Resources\\views\\Events\\ajout.html.twig");
+{% endblock %}", "@Events/Events/ajout.html.twig", "C:\\wamp64\\www\\PIDEV - Copie (2)\\src\\EventsBundle\\Resources\\views\\Events\\ajout.html.twig");
     }
 }

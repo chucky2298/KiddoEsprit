@@ -21,8 +21,6 @@ class __TwigTemplate_1b6336740ac29a501201a66da4014d1940fa591fc64da8f49d296305f7b
         $this->parent = false;
 
         $this->blocks = [
-            'title' => [$this, 'block_title'],
-            'stylesheets' => [$this, 'block_stylesheets'],
             'header' => [$this, 'block_header'],
             'content' => [$this, 'block_content'],
             'footer' => [$this, 'block_footer'],
@@ -42,105 +40,63 @@ class __TwigTemplate_1b6336740ac29a501201a66da4014d1940fa591fc64da8f49d296305f7b
         echo "<!DOCTYPE html>
 <html>
     <head>
-        <meta charset=\"UTF-8\" />
-        <title>";
-        // line 5
-        $this->displayBlock('title', $context, $blocks);
-        echo "</title>
-        ";
-        // line 6
-        $this->displayBlock('stylesheets', $context, $blocks);
-        // line 7
-        echo "        <link href=\"";
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("front/images/favicon.png"), "html", null, true);
-        echo "\" rel=\"shortcut icon\" type=\"image/vnd.microsoft.icon\"/>
+        <meta charset=\"UTF-8\">
+        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
+        <title>Kiddo</title>
+        <!--favicon -->
+        <link rel=\"icon\" href=\"";
+        // line 8
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("newFront/img/logo.png"), "html", null, true);
+        echo "\" type=\"image/x-icon\"/>
 
-        <!-- Google fonts -->
-        <link href=\"";
-        // line 10
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i"), "html", null, true);
-        echo "\" rel=\"stylesheet\">
-
-        <!-- Bootstrap -->
-        <link href=\"";
-        // line 13
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("front/css/bootstrap.min.css"), "html", null, true);
-        echo "\" rel=\"stylesheet\">
-
-        <!-- Font-awesome -->
-        <link href=\"";
-        // line 16
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("front/css/font-awesome.min.css"), "html", null, true);
-        echo "\" rel=\"stylesheet\">
-
-        <!-- Flaticon -->
-        <link href=\"";
-        // line 19
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("front/flaticon/flaticon.css"), "html", null, true);
-        echo "\" rel=\"stylesheet\">
-
-        <!-- lightcase -->
-        <link href=\"";
-        // line 22
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("front/css/lightcase.css"), "html", null, true);
-        echo "\" rel=\"stylesheet\">
-
-        <!-- Swiper -->
-        <link href=\"";
-        // line 25
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("front/css/swiper.min.css"), "html", null, true);
-        echo "\" rel=\"stylesheet\">
-
-        <!-- quick-view -->
-        <link href=\"";
-        // line 28
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("front/css/quick-view.css"), "html", null, true);
-        echo "\" rel=\"stylesheet\">
-
-        <!-- nstSlider -->
-        <link href=\"";
-        // line 31
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("front/css/jquery.nstSlider.css"), "html", null, true);
-        echo "\" rel=\"stylesheet\">
-
-        <!-- flexslider -->
-        <link href=\"";
-        // line 34
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("front/css/flexslider.css"), "html", null, true);
-        echo "\" rel=\"stylesheet\">
-
-        <!-- Style -->
-        <link href=\"";
-        // line 37
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("front/css/rtl.css"), "html", null, true);
-        echo "\" rel=\"stylesheet\">
-
-        <!-- Style -->
-        <link href=\"";
-        // line 40
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("front/css/style.css"), "html", null, true);
-        echo "\" rel=\"stylesheet\">
-
+        <!--Bootstrap.min css-->
+        <link rel=\"stylesheet\" href=\"";
+        // line 11
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("newFront/plugins/bootstrap/css/bootstrap.min.css"), "html", null, true);
+        echo "\">
         <!-- Responsive -->
         <link href=\"";
-        // line 43
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("front/css/responsive.css"), "html", null, true);
+        // line 13
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("newFront/plugins/bootstrap/css/bootstrap.min.css"), "html", null, true);
         echo "\" rel=\"stylesheet\">
+        <!--Icons css-->
+        <link rel=\"stylesheet\" href=\"";
+        // line 15
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("newFront/css/icons.css"), "html", null, true);
+        echo "\">
+
+        <!--mCustomScrollbar css-->
+        <link rel=\"stylesheet\" href=\"";
+        // line 18
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("newFront/plugins/scroll-bar/jquery.mCustomScrollbar.css"), "html", null, true);
+        echo "\">
+
+        <!--Style css-->
+        <link rel=\"stylesheet\" href=\"";
+        // line 21
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("newFront/css/style.css"), "html", null, true);
+        echo "\">
+
+        <!--Sidemenu css-->
+        <link rel=\"stylesheet\" href=\"";
+        // line 24
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("newFront/plugins/toggle-menu/sidemenu.css"), "html", null, true);
+        echo "\">
     </head>
     <body>
     ";
-        // line 46
+        // line 27
         $this->displayBlock('header', $context, $blocks);
-        // line 115
+        // line 96
         echo "    ";
         $this->displayBlock('content', $context, $blocks);
-        // line 117
+        // line 98
         echo "    ";
         $this->displayBlock('footer', $context, $blocks);
-        // line 144
+        // line 125
         echo "        ";
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 185
+        // line 159
         echo "    </body>
 </html>
 ";
@@ -152,42 +108,7 @@ class __TwigTemplate_1b6336740ac29a501201a66da4014d1940fa591fc64da8f49d296305f7b
 
     }
 
-    // line 5
-    public function block_title($context, array $blocks = [])
-    {
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
-
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
-
-        echo "Kiddo";
-        
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
-
-        
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
-
-    }
-
-    // line 6
-    public function block_stylesheets($context, array $blocks = [])
-    {
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
-
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
-
-        
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
-
-        
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
-
-    }
-
-    // line 46
+    // line 27
     public function block_header($context, array $blocks = [])
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
@@ -196,7 +117,7 @@ class __TwigTemplate_1b6336740ac29a501201a66da4014d1940fa591fc64da8f49d296305f7b
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "header"));
 
-        // line 47
+        // line 28
         echo "        <header class=\"header-three\">
             <div class=\"header-top\">
                 <div class=\"container\">
@@ -273,7 +194,7 @@ class __TwigTemplate_1b6336740ac29a501201a66da4014d1940fa591fc64da8f49d296305f7b
 
     }
 
-    // line 115
+    // line 96
     public function block_content($context, array $blocks = [])
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
@@ -282,7 +203,7 @@ class __TwigTemplate_1b6336740ac29a501201a66da4014d1940fa591fc64da8f49d296305f7b
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "content"));
 
-        // line 116
+        // line 97
         echo "    ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -292,7 +213,7 @@ class __TwigTemplate_1b6336740ac29a501201a66da4014d1940fa591fc64da8f49d296305f7b
 
     }
 
-    // line 117
+    // line 98
     public function block_footer($context, array $blocks = [])
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
@@ -301,7 +222,7 @@ class __TwigTemplate_1b6336740ac29a501201a66da4014d1940fa591fc64da8f49d296305f7b
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "footer"));
 
-        // line 118
+        // line 99
         echo "        <footer>
             <div class=\"footer-top\">
                 <div class=\"container\">
@@ -309,7 +230,7 @@ class __TwigTemplate_1b6336740ac29a501201a66da4014d1940fa591fc64da8f49d296305f7b
                         <div class=\"col-lg-3 col-sm-6 col-xs-12\">
                             <div class=\"footer-item\">
                                 <div class=\"title\"><img src=\"";
-        // line 124
+        // line 105
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("front/images/logo.png"), "html", null, true);
         echo "\" alt=\"logo\" class=\"img-responsive\"></div>
                                 <div class=\"footer-about\">
@@ -339,7 +260,7 @@ class __TwigTemplate_1b6336740ac29a501201a66da4014d1940fa591fc64da8f49d296305f7b
 
     }
 
-    // line 144
+    // line 125
     public function block_javascripts($context, array $blocks = [])
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
@@ -348,87 +269,74 @@ class __TwigTemplate_1b6336740ac29a501201a66da4014d1940fa591fc64da8f49d296305f7b
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
+        // line 126
+        echo "            <!--Jquery.min js-->
+            <script src=\"";
+        // line 127
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("newFront/js/jquery.min.js"), "html", null, true);
+        echo "\"></script>
+
+            <!--popper js-->
+            <script src=\"";
+        // line 130
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("newFront/js/popper.js"), "html", null, true);
+        echo "\"></script>
+
+            <!--Tooltip js-->
+            <script src=\"";
+        // line 133
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("newFront/js/tooltip.js"), "html", null, true);
+        echo "\"></script>
+
+            <!--Bootstrap.min js-->
+            <script src=\"";
+        // line 136
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("newFront/plugins/bootstrap/js/bootstrap.min.js"), "html", null, true);
+        echo "\"></script>
+
+            <!-- Jquery star rating-->
+            <script src=\"";
+        // line 139
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("newFront/plugins/rating/jquery.rating-stars.js"), "html", null, true);
+        echo "\"></script>
+
+            <!--Jquery.nicescroll.min js-->
+            <script src=\"";
+        // line 142
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("newFront/plugins/nicescroll/jquery.nicescroll.min.js"), "html", null, true);
+        echo "\"></script>
+
+            <!--Scroll-up-bar.min js-->
+            <script src=\"";
         // line 145
-        echo "            <!-- jquery -->
-            <script src=\"";
-        // line 146
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("front/js/jquery-1.12.4.min.js"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("newFront/plugins/scroll-up-bar/dist/scroll-up-bar.min.js"), "html", null, true);
         echo "\"></script>
 
-            <!-- Bootstrap -->
+            <!--mCustomScrollbar js-->
             <script src=\"";
-        // line 149
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("front/js/bootstrap.min.js"), "html", null, true);
+        // line 148
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("newFront/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js"), "html", null, true);
+        echo "\"></script>
+            <!--Sidemenu js-->
+            <script src=\"";
+        // line 150
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("newFront/plugins/toggle-menu/sidemenu.js"), "html", null, true);
         echo "\"></script>
 
-            <!-- Isotope -->
+            <!--Formvalidation js-->
             <script src=\"";
-        // line 152
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("front/js/isotope.min.js"), "html", null, true);
+        // line 153
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("newFront/js/formvalidation.js"), "html", null, true);
         echo "\"></script>
 
-            <!-- lightcase -->
+            <!--Scripts js-->
             <script src=\"";
-        // line 155
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("front/js/lightcase.js"), "html", null, true);
-        echo "\"></script>
-
-            <!-- counterup -->
-            <script src=\"";
-        // line 158
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("../../../cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"), "html", null, true);
+        // line 156
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("newFront/js/scripts.js"), "html", null, true);
         echo "\"></script>
             <script src=\"";
-        // line 159
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("front/js/jquery.counterup.min.js"), "html", null, true);
-        echo "\"></script>
-
-            <!-- Swiper -->
-            <script src=\"";
-        // line 162
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("front/js/swiper.jquery.min.js"), "html", null, true);
-        echo "\"></script>
-
-            <!--progress-->
-            <script src=\"";
-        // line 165
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("front/js/circle-progress.min.js"), "html", null, true);
-        echo "\"></script>
-
-            <!--velocity-->
-            <script src=\"";
-        // line 168
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("front/js/velocity.min.js"), "html", null, true);
-        echo "\"></script>
-
-            <!--quick-view-->
-            <script src=\"";
-        // line 171
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("front/js/quick-view.js"), "html", null, true);
-        echo "\"></script>
-
-            <!--nstSlider-->
-            <script src=\"";
-        // line 174
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("front/js/jquery.nstSlider.js"), "html", null, true);
-        echo "\"></script>
-
-            <!--flexslider-->
-            <script src=\"";
-        // line 177
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("front/js/flexslider-min.js"), "html", null, true);
-        echo "\"></script>
-
-            <!--easing-->
-            <script src=\"";
-        // line 180
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("front/js/jquery.easing.min.js"), "html", null, true);
-        echo "\"></script>
-
-            <!-- custom -->
-            <script src=\"";
-        // line 183
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("front/js/custom.js"), "html", null, true);
+        // line 157
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("newFront/js/jquery.showmore.js"), "html", null, true);
         echo "\"></script>
         ";
         
@@ -451,7 +359,7 @@ class __TwigTemplate_1b6336740ac29a501201a66da4014d1940fa591fc64da8f49d296305f7b
 
     public function getDebugInfo()
     {
-        return array (  431 => 183,  425 => 180,  419 => 177,  413 => 174,  407 => 171,  401 => 168,  395 => 165,  389 => 162,  383 => 159,  379 => 158,  373 => 155,  367 => 152,  361 => 149,  355 => 146,  352 => 145,  343 => 144,  313 => 124,  305 => 118,  296 => 117,  286 => 116,  277 => 115,  200 => 47,  191 => 46,  174 => 6,  156 => 5,  144 => 185,  141 => 144,  138 => 117,  135 => 115,  133 => 46,  127 => 43,  121 => 40,  115 => 37,  109 => 34,  103 => 31,  97 => 28,  91 => 25,  85 => 22,  79 => 19,  73 => 16,  67 => 13,  61 => 10,  54 => 7,  52 => 6,  48 => 5,  42 => 1,);
+        return array (  339 => 157,  335 => 156,  329 => 153,  323 => 150,  318 => 148,  312 => 145,  306 => 142,  300 => 139,  294 => 136,  288 => 133,  282 => 130,  276 => 127,  273 => 126,  264 => 125,  234 => 105,  226 => 99,  217 => 98,  207 => 97,  198 => 96,  121 => 28,  112 => 27,  100 => 159,  97 => 125,  94 => 98,  91 => 96,  89 => 27,  83 => 24,  77 => 21,  71 => 18,  65 => 15,  60 => 13,  55 => 11,  49 => 8,  40 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -467,46 +375,27 @@ class __TwigTemplate_1b6336740ac29a501201a66da4014d1940fa591fc64da8f49d296305f7b
         return new Source("<!DOCTYPE html>
 <html>
     <head>
-        <meta charset=\"UTF-8\" />
-        <title>{% block title %}Kiddo{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link href=\"{{ asset('front/images/favicon.png') }}\" rel=\"shortcut icon\" type=\"image/vnd.microsoft.icon\"/>
+        <meta charset=\"UTF-8\">
+        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
+        <title>Kiddo</title>
+        <!--favicon -->
+        <link rel=\"icon\" href=\"{{ asset('newFront/img/logo.png') }}\" type=\"image/x-icon\"/>
 
-        <!-- Google fonts -->
-        <link href=\"{{ asset('https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i') }}\" rel=\"stylesheet\">
-
-        <!-- Bootstrap -->
-        <link href=\"{{ asset('front/css/bootstrap.min.css') }}\" rel=\"stylesheet\">
-
-        <!-- Font-awesome -->
-        <link href=\"{{ asset('front/css/font-awesome.min.css') }}\" rel=\"stylesheet\">
-
-        <!-- Flaticon -->
-        <link href=\"{{ asset('front/flaticon/flaticon.css') }}\" rel=\"stylesheet\">
-
-        <!-- lightcase -->
-        <link href=\"{{ asset('front/css/lightcase.css') }}\" rel=\"stylesheet\">
-
-        <!-- Swiper -->
-        <link href=\"{{ asset('front/css/swiper.min.css') }}\" rel=\"stylesheet\">
-
-        <!-- quick-view -->
-        <link href=\"{{ asset('front/css/quick-view.css') }}\" rel=\"stylesheet\">
-
-        <!-- nstSlider -->
-        <link href=\"{{ asset('front/css/jquery.nstSlider.css') }}\" rel=\"stylesheet\">
-
-        <!-- flexslider -->
-        <link href=\"{{ asset('front/css/flexslider.css') }}\" rel=\"stylesheet\">
-
-        <!-- Style -->
-        <link href=\"{{ asset('front/css/rtl.css') }}\" rel=\"stylesheet\">
-
-        <!-- Style -->
-        <link href=\"{{ asset('front/css/style.css') }}\" rel=\"stylesheet\">
-
+        <!--Bootstrap.min css-->
+        <link rel=\"stylesheet\" href=\"{{ asset('newFront/plugins/bootstrap/css/bootstrap.min.css') }}\">
         <!-- Responsive -->
-        <link href=\"{{ asset('front/css/responsive.css') }}\" rel=\"stylesheet\">
+        <link href=\"{{ asset('newFront/plugins/bootstrap/css/bootstrap.min.css') }}\" rel=\"stylesheet\">
+        <!--Icons css-->
+        <link rel=\"stylesheet\" href=\"{{ asset('newFront/css/icons.css') }}\">
+
+        <!--mCustomScrollbar css-->
+        <link rel=\"stylesheet\" href=\"{{ asset('newFront/plugins/scroll-bar/jquery.mCustomScrollbar.css') }}\">
+
+        <!--Style css-->
+        <link rel=\"stylesheet\" href=\"{{ asset('newFront/css/style.css') }}\">
+
+        <!--Sidemenu css-->
+        <link rel=\"stylesheet\" href=\"{{ asset('newFront/plugins/toggle-menu/sidemenu.css') }}\">
     </head>
     <body>
     {% block header %}
@@ -608,48 +497,41 @@ class __TwigTemplate_1b6336740ac29a501201a66da4014d1940fa591fc64da8f49d296305f7b
         <a class=\"page-scroll scroll-top\" href=\"#scroll-top\"><i class=\"fa fa-angle-up\" aria-hidden=\"true\"></i></a>
         {% endblock %}
         {% block javascripts %}
-            <!-- jquery -->
-            <script src=\"{{ asset('front/js/jquery-1.12.4.min.js') }}\"></script>
+            <!--Jquery.min js-->
+            <script src=\"{{ asset('newFront/js/jquery.min.js') }}\"></script>
 
-            <!-- Bootstrap -->
-            <script src=\"{{ asset('front/js/bootstrap.min.js') }}\"></script>
+            <!--popper js-->
+            <script src=\"{{ asset('newFront/js/popper.js') }}\"></script>
 
-            <!-- Isotope -->
-            <script src=\"{{ asset('front/js/isotope.min.js') }}\"></script>
+            <!--Tooltip js-->
+            <script src=\"{{ asset('newFront/js/tooltip.js') }}\"></script>
 
-            <!-- lightcase -->
-            <script src=\"{{ asset('front/js/lightcase.js') }}\"></script>
+            <!--Bootstrap.min js-->
+            <script src=\"{{ asset('newFront/plugins/bootstrap/js/bootstrap.min.js') }}\"></script>
 
-            <!-- counterup -->
-            <script src=\"{{ asset('../../../cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js') }}\"></script>
-            <script src=\"{{ asset('front/js/jquery.counterup.min.js') }}\"></script>
+            <!-- Jquery star rating-->
+            <script src=\"{{ asset('newFront/plugins/rating/jquery.rating-stars.js') }}\"></script>
 
-            <!-- Swiper -->
-            <script src=\"{{ asset('front/js/swiper.jquery.min.js') }}\"></script>
+            <!--Jquery.nicescroll.min js-->
+            <script src=\"{{ asset('newFront/plugins/nicescroll/jquery.nicescroll.min.js') }}\"></script>
 
-            <!--progress-->
-            <script src=\"{{ asset('front/js/circle-progress.min.js') }}\"></script>
+            <!--Scroll-up-bar.min js-->
+            <script src=\"{{ asset('newFront/plugins/scroll-up-bar/dist/scroll-up-bar.min.js') }}\"></script>
 
-            <!--velocity-->
-            <script src=\"{{ asset('front/js/velocity.min.js') }}\"></script>
+            <!--mCustomScrollbar js-->
+            <script src=\"{{ asset('newFront/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js') }}\"></script>
+            <!--Sidemenu js-->
+            <script src=\"{{ asset('newFront/plugins/toggle-menu/sidemenu.js') }}\"></script>
 
-            <!--quick-view-->
-            <script src=\"{{ asset('front/js/quick-view.js') }}\"></script>
+            <!--Formvalidation js-->
+            <script src=\"{{ asset('newFront/js/formvalidation.js') }}\"></script>
 
-            <!--nstSlider-->
-            <script src=\"{{ asset('front/js/jquery.nstSlider.js') }}\"></script>
-
-            <!--flexslider-->
-            <script src=\"{{ asset('front/js/flexslider-min.js') }}\"></script>
-
-            <!--easing-->
-            <script src=\"{{ asset('front/js/jquery.easing.min.js') }}\"></script>
-
-            <!-- custom -->
-            <script src=\"{{ asset('front/js/custom.js') }}\"></script>
+            <!--Scripts js-->
+            <script src=\"{{ asset('newFront/js/scripts.js') }}\"></script>
+            <script src=\"{{ asset('newFront/js/jquery.showmore.js') }}\"></script>
         {% endblock %}
     </body>
 </html>
-", "base.html.twig", "C:\\wamp64\\www\\PIDEV\\app\\Resources\\views\\base.html.twig");
+", "base.html.twig", "C:\\wamp64\\www\\PIDEV - Copie (2)\\app\\Resources\\views\\base.html.twig");
     }
 }

@@ -10,9 +10,19 @@ event:
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+
 reclamation:
     resource: "@ReclamationBundle/Resources/config/routing.yml"
-    prefix:   /
+
+forum:
+    resource: "@ForumBundle/Resources/config/routing.yml"
+
+actualite:
+    resource: "@ActualiteBundle/Resources/config/routing.yml"
+
+gererenfant:
+    resource: "@GererEnfantBundle/Resources/config/routing.yml"
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+

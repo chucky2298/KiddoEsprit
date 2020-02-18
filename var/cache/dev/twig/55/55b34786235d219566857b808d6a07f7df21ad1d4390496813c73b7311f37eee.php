@@ -96,6 +96,6 @@ class __TwigTemplate_863acc2646bc2d9050b6ab22325b3f1152b6922e19bfc5a1fa83f793c72
 {% block fos_user_content %}
 {% include \"@FOSUser/Registration/register_content.html.twig\" %}
 {% endblock fos_user_content %}
-", "@FOSUser/Registration/register.html.twig", "C:\\wamp64\\www\\PIDEV\\vendor\\friendsofsymfony\\user-bundle\\Resources\\views\\Registration\\register.html.twig");
+", "@FOSUser/Registration/register.html.twig", "C:\\wamp64\\www\\PIDEV - Copie (2)\\vendor\\friendsofsymfony\\user-bundle\\Resources\\views\\Registration\\register.html.twig");
     }
 }

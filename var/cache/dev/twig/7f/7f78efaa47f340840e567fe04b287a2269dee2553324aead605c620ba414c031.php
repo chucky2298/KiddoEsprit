@@ -202,6 +202,6 @@ class __TwigTemplate_4bf2e2b21cd3e50c9f4d91d5682e1991769d2069e227972cd9440455ddb
         </div>
     </body>
 </html>
-", "@FOSUser/layout.html.twig", "C:\\wamp64\\www\\PIDEV\\vendor\\friendsofsymfony\\user-bundle\\Resources\\views\\layout.html.twig");
+", "@FOSUser/layout.html.twig", "C:\\wamp64\\www\\PIDEV - Copie (2)\\vendor\\friendsofsymfony\\user-bundle\\Resources\\views\\layout.html.twig");
     }
 }

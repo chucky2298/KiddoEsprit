@@ -200,6 +200,6 @@ class __TwigTemplate_33d9d510acb5a45f3ed508e1925c1bd14e804566c3b43fe784a3255a0df
     </div>#}
 {% endfor %}
     </div>
-{% endblock %}", "@Events/Events/affiche.html.twig", "C:\\wamp64\\www\\PIDEV\\src\\EventsBundle\\Resources\\views\\Events\\affiche.html.twig");
+{% endblock %}", "@Events/Events/affiche.html.twig", "C:\\wamp64\\www\\PIDEV - Copie (2)\\src\\EventsBundle\\Resources\\views\\Events\\affiche.html.twig");
     }
 }

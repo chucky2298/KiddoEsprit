@@ -139,6 +139,11 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                     return array (  '_controller' => 'EventsBundle:Pass:ajouterParticipations',  '_route' => 'ajouter_participation',);
                 }
 
+                // ajouter_commentaire
+                if ('/ajouter' === $pathinfo) {
+                    return array (  '_controller' => 'ForumBundle\\Controller\\commentaireController::newAction',  '_route' => 'ajouter_commentaire',);
+                }
+
             }
 
             elseif (0 === strpos($pathinfo, '/afficher')) {
@@ -155,6 +160,16 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 // afficher_participation
                 if ('/afficherParticipation' === $pathinfo) {
                     return array (  '_controller' => 'EventsBundle:Pass:afficherParticipations',  '_route' => 'afficher_participation',);
+                }
+
+                // afficher_commentaire
+                if ('/afficher' === $pathinfo) {
+                    return array (  '_controller' => 'ForumBundle\\Controller\\commentaireController::indexAction',  '_route' => 'afficher_commentaire',);
+                }
+
+                // afficherback_commentaire
+                if ('/afficherback' === $pathinfo) {
+                    return array (  '_controller' => 'ForumBundle\\Controller\\commentaireController::index1Action',  '_route' => 'afficherback_commentaire',);
                 }
 
             }
@@ -242,6 +257,150 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         // reclamation_update
         if (0 === strpos($pathinfo, '/updateReclamation') && preg_match('#^/updateReclamation/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, ['_route' => 'reclamation_update']), array (  '_controller' => 'ReclamationBundle\\Controller\\ReclamationController::updateAction',));
+        }
+
+        // forum_homepage
+        if ('' === $trimmedPathinfo) {
+            $ret = array (  '_controller' => 'ForumBundle\\Controller\\DefaultController::indexAction',  '_route' => 'forum_homepage',);
+            if ('/' === substr($pathinfo, -1)) {
+                // no-op
+            } elseif ('GET' !== $canonicalMethod) {
+                goto not_forum_homepage;
+            } else {
+                return array_replace($ret, $this->redirect($rawPathinfo.'/', 'forum_homepage'));
+            }
+
+            return $ret;
+        }
+        not_forum_homepage:
+
+        // commentaire_delete
+        if (preg_match('#^/(?P<id>[^/]++)/delete$#sD', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, ['_route' => 'commentaire_delete']), array (  '_controller' => 'ForumBundle\\Controller\\commentaireController::deleteAction',));
+        }
+
+        // afficher_reponse
+        if ('/afficherpnse' === $pathinfo) {
+            return array (  '_controller' => 'ForumBundle\\Controller\\reponseController::index1Action',  '_route' => 'afficher_reponse',);
+        }
+
+        // reponse_delete
+        if (preg_match('#^/(?P<ref>[^/]++)/delete$#sD', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, ['_route' => 'reponse_delete']), array (  '_controller' => 'ForumBundle\\Controller\\reponseController::deleteAction',));
+        }
+
+        // actualite_homepage
+        if ('' === $trimmedPathinfo) {
+            $ret = array (  '_controller' => 'ActualiteBundle\\Controller\\DefaultController::indexAction',  '_route' => 'actualite_homepage',);
+            if ('/' === substr($pathinfo, -1)) {
+                // no-op
+            } elseif ('GET' !== $canonicalMethod) {
+                goto not_actualite_homepage;
+            } else {
+                return array_replace($ret, $this->redirect($rawPathinfo.'/', 'actualite_homepage'));
+            }
+
+            return $ret;
+        }
+        not_actualite_homepage:
+
+        if (0 === strpos($pathinfo, '/ajout')) {
+            // actualite_ajoutActualite
+            if ('/ajoutActualite' === $pathinfo) {
+                return array (  '_controller' => 'ActualiteBundle\\Controller\\mainController::ajoutActualiteAction',  '_route' => 'actualite_ajoutActualite',);
+            }
+
+            // actualite_ajoutCommentaire
+            if ('/ajoutCommentaire' === $pathinfo) {
+                return array (  '_controller' => 'ActualiteBundle\\Controller\\mainController::ajoutCommentaireAction',  '_route' => 'actualite_ajoutCommentaire',);
+            }
+
+            // ajoutEnfant
+            if ('/ajoutEnfant' === $pathinfo) {
+                return array (  '_controller' => 'GererEnfantBundle\\Controller\\EnfantController::ajoutEnfantAction',  '_route' => 'ajoutEnfant',);
+            }
+
+            // ajoutNote
+            if ('/ajoutNote' === $pathinfo) {
+                return array (  '_controller' => 'GererEnfantBundle\\Controller\\NoteController::ajoutNoteAction',  '_route' => 'ajoutNote',);
+            }
+
+        }
+
+        elseif (0 === strpos($pathinfo, '/affiche')) {
+            // actualite_afficheActualite
+            if ('/afficheActualite' === $pathinfo) {
+                return array (  '_controller' => 'ActualiteBundle\\Controller\\mainController::afficheActualiteAction',  '_route' => 'actualite_afficheActualite',);
+            }
+
+            // actualite_afficheCommentaire
+            if ('/afficheCommentaire' === $pathinfo) {
+                return array (  '_controller' => 'ActualiteBundle\\Controller\\mainController::afficheCommentaireAction',  '_route' => 'actualite_afficheCommentaire',);
+            }
+
+            // afficheEnfant
+            if ('/afficheEnfant' === $pathinfo) {
+                return array (  '_controller' => 'GererEnfantBundle\\Controller\\EnfantController::afficheEnfantAction',  '_route' => 'afficheEnfant',);
+            }
+
+            // afficheNote
+            if ('/afficheNote' === $pathinfo) {
+                return array (  '_controller' => 'GererEnfantBundle\\Controller\\NoteController::afficheNoteAction',  '_route' => 'afficheNote',);
+            }
+
+        }
+
+        elseif (0 === strpos($pathinfo, '/update')) {
+            // actualite_updateActualite
+            if (0 === strpos($pathinfo, '/updateActualite') && preg_match('#^/updateActualite/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, ['_route' => 'actualite_updateActualite']), array (  '_controller' => 'ActualiteBundle\\Controller\\mainController::updateActualiteAction',));
+            }
+
+            // updateEnfant
+            if (0 === strpos($pathinfo, '/updateEnfant') && preg_match('#^/updateEnfant/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, ['_route' => 'updateEnfant']), array (  '_controller' => 'GererEnfantBundle\\Controller\\EnfantController::updateEnfantAction',));
+            }
+
+            // updateNote
+            if (0 === strpos($pathinfo, '/updateNote') && preg_match('#^/updateNote/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, ['_route' => 'updateNote']), array (  '_controller' => 'GererEnfantBundle\\Controller\\NoteController::updateNoteAction',));
+            }
+
+        }
+
+        // actualite_supprimeActualite
+        if (0 === strpos($pathinfo, '/supprimeActualite') && preg_match('#^/supprimeActualite/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, ['_route' => 'actualite_supprimeActualite']), array (  '_controller' => 'ActualiteBundle\\Controller\\mainController::supprimeActualiteAction',));
+        }
+
+        // actualite_supprimeCommentaire
+        if (0 === strpos($pathinfo, '/supprimeCommentaire') && preg_match('#^/supprimeCommentaire/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, ['_route' => 'actualite_supprimeCommentaire']), array (  '_controller' => 'ActualiteBundle\\Controller\\mainController::supprimeCommentaireAction',));
+        }
+
+        // gerer_enfant_homepage
+        if ('' === $trimmedPathinfo) {
+            $ret = array (  '_controller' => 'GererEnfantBundle\\Controller\\DefaultController::indexAction',  '_route' => 'gerer_enfant_homepage',);
+            if ('/' === substr($pathinfo, -1)) {
+                // no-op
+            } elseif ('GET' !== $canonicalMethod) {
+                goto not_gerer_enfant_homepage;
+            } else {
+                return array_replace($ret, $this->redirect($rawPathinfo.'/', 'gerer_enfant_homepage'));
+            }
+
+            return $ret;
+        }
+        not_gerer_enfant_homepage:
+
+        // deleteEnfant
+        if (0 === strpos($pathinfo, '/deleteEnfant') && preg_match('#^/deleteEnfant/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, ['_route' => 'deleteEnfant']), array (  '_controller' => 'GererEnfantBundle\\Controller\\EnfantController::deleteEnfantAction',));
+        }
+
+        // deleteNote
+        if (0 === strpos($pathinfo, '/deleteNote') && preg_match('#^/deleteNote/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, ['_route' => 'deleteNote']), array (  '_controller' => 'GererEnfantBundle\\Controller\\NoteController::deleteNoteAction',));
         }
 
         if (0 === strpos($pathinfo, '/login')) {

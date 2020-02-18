@@ -220,6 +220,6 @@ class __TwigTemplate_dcf5537d32e323588f68faec7dbd8d4a26be1b39920d0e059471e1d1199
         </div><!-- swiper-container -->
     </section><!-- banner -->
 {% endblock %}
-", "EventsBundle:Default:index.html.twig", "C:\\wamp64\\www\\PIDEV\\src\\EventsBundle/Resources/views/Default/index.html.twig");
+", "EventsBundle:Default:index.html.twig", "C:\\wamp64\\www\\PIDEV - Copie (2)\\src\\EventsBundle/Resources/views/Default/index.html.twig");
     }
 }

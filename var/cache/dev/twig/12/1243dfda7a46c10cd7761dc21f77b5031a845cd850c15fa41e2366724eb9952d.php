@@ -217,6 +217,6 @@ class __TwigTemplate_96b42648e5324aa05e6c4eec0bbbc097813076a108d12daaa4e05693e00
     </div>
     <!--row closed-->
     {{ form_end(form) }}
-{% endblock %}", "@Events/Events/modifier.html.twig", "C:\\wamp64\\www\\PIDEV\\src\\EventsBundle\\Resources\\views\\Events\\modifier.html.twig");
+{% endblock %}", "@Events/Events/modifier.html.twig", "C:\\wamp64\\www\\PIDEV - Copie (2)\\src\\EventsBundle\\Resources\\views\\Events\\modifier.html.twig");
     }
 }
