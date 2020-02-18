@@ -77,7 +77,27 @@ class Enfant
     /**
      * @ORM\ManyToOne(targetEntity="Note")
      * @ORM\JoinColumn(name="Note_id",referencedColumnName="id")
+     * @ORM\JoinColumn(name="Parent_id",referencedColumnName="id")
+
      */
+    private $Parent_id;
+
+    /**
+     * @return mixed
+     */
+    public function getParentId()
+    {
+        return $this->Parent_id;
+    }
+
+    /**
+     * @param mixed $Parent_id
+     */
+    public function setParentId($Parent_id)
+    {
+        $this->Parent_id = $Parent_id;
+    }
+
   private $Note_id;
 
     /**
