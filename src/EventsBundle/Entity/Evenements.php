@@ -42,12 +42,6 @@ class Evenements
      */
     private $quantite;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="lienPhoto", type="string", length=255)
-     */
-    private $lienPhoto;
 
     /**
      * @var \DateTime
@@ -139,29 +133,9 @@ class Evenements
         return $this->quantite;
     }
 
-    /**
-     * Set lienPhoto
-     *
-     * @param string $lienPhoto
-     *
-     * @return Evenements
-     */
-    public function setLienPhoto($lienPhoto)
-    {
-        $this->lienPhoto = $lienPhoto;
 
-        return $this;
-    }
 
-    /**
-     * Get lienPhoto
-     *
-     * @return string
-     */
-    public function getLienPhoto()
-    {
-        return $this->lienPhoto;
-    }
+
 
     /**
      * Set date
@@ -211,6 +185,23 @@ class Evenements
      * })
      */
     private $category;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $brochure;
+
+    public function getBrochure()
+    {
+        return $this->brochure;
+    }
+
+    public function setBrochure($brochure)
+    {
+        $this->brochure = $brochure;
+
+        return $this;
+    }
 
 
 }

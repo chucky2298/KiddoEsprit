@@ -64,15 +64,22 @@
 
             <ul class="side-menu">
                 <li class="slide">
-                    <a class="slide-item"  href="{{ path('afficher_event') }}"><span>Gerer parents</span></a>                </li>
+                    <a class="slide-item"  href="#"><span>Gerer parents</span></a>                </li>
                 <li class="slide">
-                    <a class="slide-item"  href="{{ path('afficher_event') }}"><span>Gerer enfants</span></a>                </li>
+                    <a class="slide-item"  href="#"><span>Gerer enfants</span></a>                </li>
                 <li class="slide">
-                    <a class="slide-item"  href="{{ path('afficher_event') }}"><span>Gerer evenements</span></a>                </li>
+                    <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-smile-o"></i><span class="side-menu__label">Gerer events</span><i class="angle fa fa-angle-right"></i></a>
+                    <ul class="slide-menu">
+                        <li><a href="{{ path('afficher_event') }}" class="slide-item"> Liste events</a></li>
+                        <li><a href="{{ path('ajouter_event') }}" class="slide-item"> Ajouter event</a></li>
+                        <li><a href="{{ path('afficher_category') }}" class="slide-item"> Liste categories</a></li>
+                        <li><a href="{{ path('ajouter_category') }}" class="slide-item"> Ajouter categorie</a></li>
+                    </ul>
+                </li>
                 <li class="slide">
-                    <a class="slide-item"  href="{{ path('afficher_event') }}"><span>Gerer actualités</span></a>                </li>
+                    <a class="slide-item"  href="#"><span>Gerer actualités</span></a>                </li>
                 <li class="slide">
-                    <a class="slide-item"  href="{{ path('afficher_event') }}"><span>Gerer questions</span></a>                </li>
+                    <a class="slide-item"  href="#"><span>Gerer questions</span></a>                </li>
             </ul>
         </aside>
         <!--aside closed-->

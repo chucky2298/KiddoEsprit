@@ -6,6 +6,8 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Validator\Constraints\File;
 
 class EvenementsType extends AbstractType
 {
@@ -17,7 +19,10 @@ class EvenementsType extends AbstractType
         $builder->add('nom')
             ->add('adresse')
             ->add('quantite')
-            ->add('lienPhoto')
+            ->add('brochure', FileType::class, [
+                'label' => 'Brochure (jpeg file)',
+                'data_class'   =>  null,
+            ])
             ->add('date')
             ->add('category',EntityType::class,array('class'=>'EventsBundle:category','choice_label'=>'nom'));
     }/**

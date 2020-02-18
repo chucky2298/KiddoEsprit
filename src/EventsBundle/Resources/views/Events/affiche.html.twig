@@ -6,7 +6,7 @@
         $("a").hover(function(){ $("a").css("color","red")});
     });
 </script>#}
-    <div class="section-body card-columns gallery">
+    <div class="row">
 {% for events in events %}
     {#<p>{{ events.nom }}</p>
     <ul>
@@ -14,7 +14,20 @@
         <li>adresse : {{ events.adresse }}</li>
     </ul>
     <a href="{{ path('supprimer_event', { 'id':events.id }) }}"><b>supprimer</b></a>#}
-    <div class="row">
+    <div class="col-xl-4 col-lg-12 col-md-12">
+        <div class="card">
+            <img class="card-img-top w-100" src="{{ asset('back/' ~ events.brochure) }}" alt="">
+            <div class="card-body">
+                <h4 class="card-title">{{ events.nom }}</h4>
+                <p class="card-text">Adresse: {{ events.adresse }}</p>
+                <p class="card-text">Date: {{ events.date|date("m/d/Y") }}</p>
+                <p class="card-text">{{ events.quantite }} passes</p>
+                <a class="btn btn-primary" href="{{ path('supprimer_event', { 'id':events.id }) }}">Supprimer</a>
+                <a class="btn btn-primary" href="{{ path('modifier_event', { 'id':events.id }) }}">Modifier</a>
+            </div>
+        </div>
+    </div>
+    {#<div class="row">
         <div class="col-md-12">
             <div class="card pricing-table-7">
                 <div class="card-header price-header">
@@ -36,7 +49,7 @@
                     </div>
             </div>
         </div>
-    </div>
+    </div>#}
 {% endfor %}
     </div>
 {% endblock %}

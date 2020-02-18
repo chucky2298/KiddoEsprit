@@ -1,46 +1,27 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Kiddo{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link href="{{ asset('front/images/favicon.png') }}" rel="shortcut icon" type="image/vnd.microsoft.icon"/>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Kiddo</title>
+        <!--favicon -->
+        <link rel="icon" href="{{ asset('newFront/img/logo.png') }}" type="image/x-icon"/>
 
-        <!-- Google fonts -->
-        <link href="{{ asset('https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i') }}" rel="stylesheet">
-
-        <!-- Bootstrap -->
-        <link href="{{ asset('front/css/bootstrap.min.css') }}" rel="stylesheet">
-
-        <!-- Font-awesome -->
-        <link href="{{ asset('front/css/font-awesome.min.css') }}" rel="stylesheet">
-
-        <!-- Flaticon -->
-        <link href="{{ asset('front/flaticon/flaticon.css') }}" rel="stylesheet">
-
-        <!-- lightcase -->
-        <link href="{{ asset('front/css/lightcase.css') }}" rel="stylesheet">
-
-        <!-- Swiper -->
-        <link href="{{ asset('front/css/swiper.min.css') }}" rel="stylesheet">
-
-        <!-- quick-view -->
-        <link href="{{ asset('front/css/quick-view.css') }}" rel="stylesheet">
-
-        <!-- nstSlider -->
-        <link href="{{ asset('front/css/jquery.nstSlider.css') }}" rel="stylesheet">
-
-        <!-- flexslider -->
-        <link href="{{ asset('front/css/flexslider.css') }}" rel="stylesheet">
-
-        <!-- Style -->
-        <link href="{{ asset('front/css/rtl.css') }}" rel="stylesheet">
-
-        <!-- Style -->
-        <link href="{{ asset('front/css/style.css') }}" rel="stylesheet">
-
+        <!--Bootstrap.min css-->
+        <link rel="stylesheet" href="{{ asset('newFront/plugins/bootstrap/css/bootstrap.min.css') }}">
         <!-- Responsive -->
-        <link href="{{ asset('front/css/responsive.css') }}" rel="stylesheet">
+        <link href="{{ asset('newFront/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+        <!--Icons css-->
+        <link rel="stylesheet" href="{{ asset('newFront/css/icons.css') }}">
+
+        <!--mCustomScrollbar css-->
+        <link rel="stylesheet" href="{{ asset('newFront/plugins/scroll-bar/jquery.mCustomScrollbar.css') }}">
+
+        <!--Style css-->
+        <link rel="stylesheet" href="{{ asset('newFront/css/style.css') }}">
+
+        <!--Sidemenu css-->
+        <link rel="stylesheet" href="{{ asset('newFront/plugins/toggle-menu/sidemenu.css') }}">
     </head>
     <body>
     {% block header %}
@@ -142,45 +123,38 @@
         <a class="page-scroll scroll-top" href="#scroll-top"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
         {% endblock %}
         {% block javascripts %}
-            <!-- jquery -->
-            <script src="{{ asset('front/js/jquery-1.12.4.min.js') }}"></script>
+            <!--Jquery.min js-->
+            <script src="{{ asset('newFront/js/jquery.min.js') }}"></script>
 
-            <!-- Bootstrap -->
-            <script src="{{ asset('front/js/bootstrap.min.js') }}"></script>
+            <!--popper js-->
+            <script src="{{ asset('newFront/js/popper.js') }}"></script>
 
-            <!-- Isotope -->
-            <script src="{{ asset('front/js/isotope.min.js') }}"></script>
+            <!--Tooltip js-->
+            <script src="{{ asset('newFront/js/tooltip.js') }}"></script>
 
-            <!-- lightcase -->
-            <script src="{{ asset('front/js/lightcase.js') }}"></script>
+            <!--Bootstrap.min js-->
+            <script src="{{ asset('newFront/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
 
-            <!-- counterup -->
-            <script src="{{ asset('../../../cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js') }}"></script>
-            <script src="{{ asset('front/js/jquery.counterup.min.js') }}"></script>
+            <!-- Jquery star rating-->
+            <script src="{{ asset('newFront/plugins/rating/jquery.rating-stars.js') }}"></script>
 
-            <!-- Swiper -->
-            <script src="{{ asset('front/js/swiper.jquery.min.js') }}"></script>
+            <!--Jquery.nicescroll.min js-->
+            <script src="{{ asset('newFront/plugins/nicescroll/jquery.nicescroll.min.js') }}"></script>
 
-            <!--progress-->
-            <script src="{{ asset('front/js/circle-progress.min.js') }}"></script>
+            <!--Scroll-up-bar.min js-->
+            <script src="{{ asset('newFront/plugins/scroll-up-bar/dist/scroll-up-bar.min.js') }}"></script>
 
-            <!--velocity-->
-            <script src="{{ asset('front/js/velocity.min.js') }}"></script>
+            <!--mCustomScrollbar js-->
+            <script src="{{ asset('newFront/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+            <!--Sidemenu js-->
+            <script src="{{ asset('newFront/plugins/toggle-menu/sidemenu.js') }}"></script>
 
-            <!--quick-view-->
-            <script src="{{ asset('front/js/quick-view.js') }}"></script>
+            <!--Formvalidation js-->
+            <script src="{{ asset('newFront/js/formvalidation.js') }}"></script>
 
-            <!--nstSlider-->
-            <script src="{{ asset('front/js/jquery.nstSlider.js') }}"></script>
-
-            <!--flexslider-->
-            <script src="{{ asset('front/js/flexslider-min.js') }}"></script>
-
-            <!--easing-->
-            <script src="{{ asset('front/js/jquery.easing.min.js') }}"></script>
-
-            <!-- custom -->
-            <script src="{{ asset('front/js/custom.js') }}"></script>
+            <!--Scripts js-->
+            <script src="{{ asset('newFront/js/scripts.js') }}"></script>
+            <script src="{{ asset('newFront/js/jquery.showmore.js') }}"></script>
         {% endblock %}
     </body>
 </html>

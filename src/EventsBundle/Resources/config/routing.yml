@@ -22,4 +22,13 @@ afficher_category:
 supprimer_category:
     path:     /supprimerCategory/{id}
     defaults: { _controller: EventsBundle:Category:supprimerCategory }
+ajouter_participation:
+    path:     /ajouterParticipation
+    defaults: { _controller: EventsBundle:Pass:ajouterParticipations }
+afficher_participation:
+    path:     /afficherParticipation
+    defaults: { _controller: EventsBundle:Pass:afficherParticipations }
+supprimer_participation:
+    path:     /supprimerParticipation/{id}
+    defaults: { _controller: EventsBundle:Pass:supprimerParticipations }
 
