@@ -60,6 +60,7 @@ class Note
      *
      * @return Note
      */
+
     public function setMatiere($matiere)
     {
         $this->matiere = $matiere;
