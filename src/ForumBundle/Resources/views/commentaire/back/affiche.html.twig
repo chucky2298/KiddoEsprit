@@ -1,0 +1,22 @@
+<table border="1">
+    <thead>
+    <tr>
+        <th><h4><b>pseudo</b></h4></th>
+        <th><h4><b>mail</b></h4></th>
+        <th><h4><b>message</b></h4></th>
+        <th><h4><b>Supprimer</b></h4></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for comment in commentaire %}
+        <tr>
+            <td><b>{{ comment.pseudo }}</b></td>
+            <td><b>{{ comment.mail }}</b></td>
+            <td><b>{{ comment.message }}</b></td>
+            <td>
+                <a href="{{ path('commentaire_delete', { 'id':comment.pseudo }) }}"><b>supprimer</b></a><br>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

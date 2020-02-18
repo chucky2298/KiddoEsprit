@@ -1,0 +1,24 @@
+<table border="1">
+    <thead>
+    <tr>
+        <th><h4><b>pseudo</b></h4></th>
+        <th><h4><b>mail</b></h4></th>
+        <th><h4><b>message</b></h4></th>
+        <th><h4><b>commentaire</b></h4></th>
+        <th><h4><b>supprimer</b></h4></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for repons in reponse %}
+        <tr>
+            <td><b>{{ repons.pseudo }}</b></td>
+            <td><b>{{ repons.mail }}</b></td>
+            <td><b>{{ repons.message }}</b></td>
+            <td><b>{{ repons.commentaire.message }}</b></td>
+            <td>
+                <a href="{{ path('reponse_delete', { 'ref':repons.pseudo}) }}"><b>supprimer</b></a><br>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

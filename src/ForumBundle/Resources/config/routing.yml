@@ -1,0 +1,21 @@
+forum_homepage:
+    path:     /
+    defaults: { _controller: ForumBundle:Default:index }
+ajouter_commentaire:
+    path:     /ajouter
+    defaults: { _controller: ForumBundle:commentaire:new }
+afficher_commentaire:
+    path:     /afficher
+    defaults: { _controller: ForumBundle:commentaire:index }
+afficherback_commentaire:
+    path:     /afficherback
+    defaults: { _controller: ForumBundle:commentaire:index1 }
+commentaire_delete:
+    path:     /{id}/delete
+    defaults: { _controller: ForumBundle:commentaire:delete }
+afficher_reponse:
+    path:     /afficherpnse
+    defaults: { _controller: ForumBundle:reponse:index1 }
+reponse_delete:
+    path:     /{ref}/delete
+    defaults: { _controller: ForumBundle:reponse:delete }
