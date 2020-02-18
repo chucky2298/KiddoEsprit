@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1>  Liste des Commentaires! </h1>
+
+    <div class="album py-5 bg-light">
+        <div class="container">
+
+            <div class="row">
+                {% for c in Commentaire %}
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <p class="card-text">{{ c.titre }}</p>
+                            <div class="card-body">
+                                <p class="card-text">{{ c.contenu }}</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a href="{{ path('actualite_supprimeCommentaire',{'id': c.id}) }}"><button type="button" class="btn btn-sm btn-outline-secondary">Supprimer</button> </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

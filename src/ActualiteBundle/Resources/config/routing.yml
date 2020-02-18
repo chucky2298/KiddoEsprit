@@ -1,0 +1,32 @@
+actualite_homepage:
+    path:     /
+    defaults: { _controller: ActualiteBundle:Default:index }
+
+actualite_ajoutActualite:
+    path:     /ajoutActualite
+    defaults: { _controller: ActualiteBundle:main:ajoutActualite }
+
+actualite_afficheActualite:
+    path:     /afficheActualite
+    defaults: { _controller: ActualiteBundle:main:afficheActualite }
+
+actualite_updateActualite:
+    path:     /updateActualite/{id}
+    defaults: { _controller: ActualiteBundle:main:updateActualite }
+
+actualite_supprimeActualite:
+    path:     /supprimeActualite/{id}
+    defaults: { _controller: ActualiteBundle:main:supprimeActualite }
+
+
+actualite_ajoutCommentaire:
+    path:     /ajoutCommentaire
+    defaults: { _controller: ActualiteBundle:main:ajoutCommentaire }
+
+actualite_afficheCommentaire:
+    path:     /afficheCommentaire
+    defaults: { _controller: ActualiteBundle:main:afficheCommentaire }
+
+actualite_supprimeCommentaire:
+    path:     /supprimeCommentaire/{id}
+    defaults: { _controller: ActualiteBundle:main:supprimeCommentaire }
