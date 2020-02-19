@@ -3,6 +3,7 @@
 namespace EventsBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Evenements
@@ -25,6 +26,7 @@ class Evenements
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=255)
+     * @Assert\Length(min=2)
      */
     private $nom;
 
@@ -32,6 +34,7 @@ class Evenements
      * @var string
      *
      * @ORM\Column(name="adresse", type="string", length=255)
+     * @Assert\Length(min=2)
      */
     private $adresse;
 
@@ -39,6 +42,7 @@ class Evenements
      * @var int
      *
      * @ORM\Column(name="quantite", type="integer")
+     * @Assert\Range(min=0, max=200, maxMessage="Le nombre doit faire au plus 200")
      */
     private $quantite;
 
@@ -47,6 +51,7 @@ class Evenements
      * @var \DateTime
      *
      * @ORM\Column(name="date", type="datetime")
+     * @Assert\GreaterThan("today")
      */
     private $date;
 

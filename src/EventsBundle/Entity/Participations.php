@@ -3,6 +3,7 @@
 namespace EventsBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Participations
@@ -22,26 +23,35 @@ class Participations
     private $id;
 
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="nom", type="string", length=255)
+     * @ORM\Column(name="nbPersonnes", type="integer")
+     * @Assert\Range(max=5, maxMessage="Le nombre doit faire au plus 5")
      */
-    private $nom;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="date", type="datetime")
-     */
-    private $date;
+    private $nbPersonnes;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="nbPersonnes", type="integer")
+     * @ORM\Column(name="user", type="integer")
      */
-    private $nbPersonnes;
+    private $userId;
 
+    /**
+     * @return int
+     */
+    public function getUserId()
+    {
+        return $this->userId;
+    }
+
+    /**
+     * @param int $userId
+     */
+    public function setUserId($userId)
+    {
+        $this->userId = $userId;
+    }
 
     /**
      * Get id
@@ -53,53 +63,7 @@ class Participations
         return $this->id;
     }
 
-    /**
-     * Set nom
-     *
-     * @param string $nom
-     *
-     * @return Participations
-     */
-    public function setNom($nom)
-    {
-        $this->nom = $nom;
 
-        return $this;
-    }
-
-    /**
-     * Get nom
-     *
-     * @return string
-     */
-    public function getNom()
-    {
-        return $this->nom;
-    }
-
-    /**
-     * Set date
-     *
-     * @param \DateTime $date
-     *
-     * @return Participations
-     */
-    public function setDate($date)
-    {
-        $this->date = $date;
-
-        return $this;
-    }
-
-    /**
-     * Get date
-     *
-     * @return \DateTime
-     */
-    public function getDate()
-    {
-        return $this->date;
-    }
 
     /**
      * Set nbPersonnes
@@ -124,6 +88,7 @@ class Participations
     {
         return $this->nbPersonnes;
     }
+
     /**
      * @var \Evenements
      *

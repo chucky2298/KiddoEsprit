@@ -134,11 +134,6 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                     return array (  '_controller' => 'EventsBundle\\Controller\\CategoryController::ajouterCategoryAction',  '_route' => 'ajouter_category',);
                 }
 
-                // ajouter_participation
-                if ('/ajouterParticipation' === $pathinfo) {
-                    return array (  '_controller' => 'EventsBundle:Pass:ajouterParticipations',  '_route' => 'ajouter_participation',);
-                }
-
                 // ajouter_commentaire
                 if ('/ajouter' === $pathinfo) {
                     return array (  '_controller' => 'ForumBundle\\Controller\\commentaireController::newAction',  '_route' => 'ajouter_commentaire',);
@@ -147,9 +142,17 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             }
 
             elseif (0 === strpos($pathinfo, '/afficher')) {
-                // afficher_event
-                if ('/afficherEvent' === $pathinfo) {
-                    return array (  '_controller' => 'EventsBundle\\Controller\\EventsController::afficherEventAction',  '_route' => 'afficher_event',);
+                if (0 === strpos($pathinfo, '/afficherEvent')) {
+                    // afficher_event
+                    if ('/afficherEvent' === $pathinfo) {
+                        return array (  '_controller' => 'EventsBundle\\Controller\\EventsController::afficherEventAction',  '_route' => 'afficher_event',);
+                    }
+
+                    // afficher_eventFront
+                    if ('/afficherEventFront' === $pathinfo) {
+                        return array (  '_controller' => 'EventsBundle\\Controller\\EventsController::listerEventAction',  '_route' => 'afficher_eventFront',);
+                    }
+
                 }
 
                 // afficher_category
@@ -181,20 +184,30 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
-        elseif (0 === strpos($pathinfo, '/supprimer')) {
+        // participer
+        if (0 === strpos($pathinfo, '/participer') && preg_match('#^/participer/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, ['_route' => 'participer']), array (  '_controller' => 'EventsBundle\\Controller\\EventsController::participerAction',));
+        }
+
+        if (0 === strpos($pathinfo, '/supprimer')) {
             // supprimer_event
             if (0 === strpos($pathinfo, '/supprimerEvent') && preg_match('#^/supprimerEvent/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, ['_route' => 'supprimer_event']), array (  '_controller' => 'EventsBundle\\Controller\\EventsController::supprimerEventAction',));
             }
 
-            // supprimer_category
-            if (0 === strpos($pathinfo, '/supprimerCategory') && preg_match('#^/supprimerCategory/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, ['_route' => 'supprimer_category']), array (  '_controller' => 'EventsBundle\\Controller\\CategoryController::supprimerCategoryAction',));
+            // supprimer_pass
+            if (0 === strpos($pathinfo, '/supprimerPass') && preg_match('#^/supprimerPass/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, ['_route' => 'supprimer_pass']), array (  '_controller' => 'EventsBundle\\Controller\\EventsController::supprimerPassAction',));
             }
 
             // supprimer_participation
             if (0 === strpos($pathinfo, '/supprimerParticipation') && preg_match('#^/supprimerParticipation/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, ['_route' => 'supprimer_participation']), array (  '_controller' => 'EventsBundle:Pass:supprimerParticipations',));
+            }
+
+            // supprimer_category
+            if (0 === strpos($pathinfo, '/supprimerCategory') && preg_match('#^/supprimerCategory/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, ['_route' => 'supprimer_category']), array (  '_controller' => 'EventsBundle\\Controller\\CategoryController::supprimerCategoryAction',));
             }
 
         }
@@ -207,6 +220,11 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         // modifier_event
         if (0 === strpos($pathinfo, '/modifierEvent') && preg_match('#^/modifierEvent/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, ['_route' => 'modifier_event']), array (  '_controller' => 'EventsBundle\\Controller\\EventsController::modifierEventAction',));
+        }
+
+        // liste_participations
+        if ('/listeParticipations' === $pathinfo) {
+            return array (  '_controller' => 'EventsBundle\\Controller\\EventsController::listerParticipationsAction',  '_route' => 'liste_participations',);
         }
 
         // event_default_index

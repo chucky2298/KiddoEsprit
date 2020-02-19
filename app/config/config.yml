@@ -82,3 +82,9 @@ fos_user:
     from_email:
         address: "atef.hafdhi@esprit.tn"
         sender_name: "atef"
+
+knp_snappy:
+    pdf:
+        enabled:    true
+        binary:     "\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe\""
+        options:    []

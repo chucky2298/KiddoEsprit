@@ -1,160 +1,188 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>Kiddo</title>
-        <!--favicon -->
-        <link rel="icon" href="{{ asset('newFront/img/logo.png') }}" type="image/x-icon"/>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Favicons -->
+        <link rel="shortcut icon" href="{{ asset('newFront/images/favicon.ico') }}">
+        <link rel="apple-touch-icon" href="{{ asset('newFront/images/icon.png') }}">
+        <!-- Google font (font-family: 'Dosis', Roboto;) -->
+        <link href="{{ asset('https://fonts.googleapis.com/css?family=Dosis:400,500,600,700') }}"  rel="stylesheet">
+        <link href="{{ asset('https://fonts.googleapis.com/css?family=Roboto:400,500,700') }}" rel="stylesheet">
 
-        <!--Bootstrap.min css-->
-        <link rel="stylesheet" href="{{ asset('newFront/plugins/bootstrap/css/bootstrap.min.css') }}">
-        <!-- Responsive -->
-        <link href="{{ asset('newFront/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-        <!--Icons css-->
-        <link rel="stylesheet" href="{{ asset('newFront/css/icons.css') }}">
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="{{ asset('newFront/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('newFront/css/plugins.css') }}">
+        <link rel="stylesheet" href="{{ asset('newFront/style.css') }}">
 
-        <!--mCustomScrollbar css-->
-        <link rel="stylesheet" href="{{ asset('newFront/plugins/scroll-bar/jquery.mCustomScrollbar.css') }}">
+        <!-- Cusom css -->
+        <link rel="stylesheet" href="{{ asset('newFront/css/custom.css') }}">
 
-        <!--Style css-->
-        <link rel="stylesheet" href="{{ asset('newFront/css/style.css') }}">
+        <!-- Modernizer js -->
+        <script src="{{ asset('newFront/js/vendor/modernizr-3.5.0.min.js') }}"></script>
 
         <!--Sidemenu css-->
-        <link rel="stylesheet" href="{{ asset('newFront/plugins/toggle-menu/sidemenu.css') }}">
+        <link rel="stylesheet" href="{{ asset('newFront/css/bootstrap.min.css') }}">
     </head>
     <body>
+    <div class="wrapper" id="wrapper">
     {% block header %}
-        <header class="header-three">
-            <div class="header-top">
+        <header id="header" class="jnr__header header--2 clearfix">
+            <!-- Start Header Top Area -->
+            <div class="junior__header__top bg-image--5">
                 <div class="container">
-                    <div class="row ht-area">
-                        <ul class="left">
-                            <li><span><i aria-hidden="true"></i></span> Solution by LightBringers</li>
-                        </ul>
-                        <ul class="right">
-                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-skype" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="main-menu">
-                <div class="container">
-                    <div class="row no-gutters">
-                        <nav class="main-menu-area w-100">
-                            <div class="logo-area">
-                                <a class="" href="index.html"><img src="front/images/logo.png" alt="logo" class="img-responsive"></a>
-                                <button type="button" class="navbar-toggle collapsed d-md-none" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                                    <span class="sr-only">Toggle navigation</span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </button>
-                            </div>
-
-                            <div class="menu-area">
-
-
-                                <ul class="menu">
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Acceuil </a>
-                                    </li>
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">A propos </a>
-                                    </li>
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Nos jardins </a>
-                                    </li>
-                                    <li class="dropdown">
-                                        <a href="event.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Evenements </a>
-                                    </li>
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reclamations <span class="caret"></span></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="gallery.html">Passer reclamation</a></li>
-                                            <li><a href="gallery-2.html">Consulter reclamations</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog </a>
-                                    </li>
+                    <div class="row">
+                        <div class="col-md-4 col-lg-6 col-sm-3 col-12">
+                            <div class="jun__header__top__right">
+                                <ul class="accounting d-flex justify-content-lg-end justify-content-md-end justify-content-start align-items-center">
+                                    <li><a class="login-trigger" href="#">Login</a></li>
+                                    <li><a class="accountbox-trigger" href="#">Register</a></li>
                                 </ul>
                             </div>
-                        </nav>
+                        </div>
                     </div>
                 </div>
             </div>
+            <!-- End Header Top Area -->
+            <!-- Start Mainmenu Area -->
+            <div class="mainmenu__wrapper bg--white sticky__header">
+                <div class="container">
+                    <div class="row d-none d-lg-flex">
+                        <div class="col-sm-4 col-md-6 col-lg-2 order-1 order-lg-1">
+                            <div class="logo">
+                                <a href="index.html">
+                                    <img src="{{ asset('newFront/images/logo/logo.jpg') }}" alt="logo images">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-md-2 col-lg-9 order-3 order-lg-2">
+                            <div class="mainmenu__wrap">
+                                <nav class="mainmenu__nav">
+                                    <ul class="mainmenu">
+                                        <li><a href="index.html">Acceuil</a></li>
+                                        <li class="drop"><a href="class-grid.html">Class</a>
+                                            <ul class="dropdown__menu">
+                                                <li><a href="class-grid.html">Class Grid</a></li>
+                                                <li><a href="class-list.html">Class List</a></li>
+                                                <li><a href="class-details.html">Class Details</a></li>
+                                                <li><a href="class-details-left-sidebar.html">Class Details LeftSidebar</a></li>
+                                                <li><a href="class-details-right-sidebar.html">Class Details RightSidebar</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="drop"><a href="event-grid.html">Event</a>
+                                            <ul class="dropdown__menu">
+                                                <li><a href="{{ path('afficher_eventFront') }}">Prochainement</a></li>
+                                                <li><a href="{{ path('liste_participations') }}">Mes passes</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="drop"><a href="#">Pages</a>
+                                            <ul class="dropdown__menu">
+                                                <li><a href="about-us.html">about us</a></li>
+                                                <li><a href="service.html">our service</a></li>
+                                                <li><a href="gallery-one.html">gallery One</a></li>
+                                                <li><a href="gallery-two.html">gallery Two</a></li>
+                                                <li><a href="gallery-three.html">gallery Three</a></li>
+                                                <li><a href="gallery-details.html">gallery Details</a></li>
+                                                <li><a href="cart.html">cart Page</a></li>
+                                                <li><a href="wishlist.html">wishlist page</a></li>
+                                                <li><a href="checkout.html">checkout page</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="drop"><a href="shop-grid.html">Shop</a>
+                                            <ul class="dropdown__menu">
+                                                <li><a href="shop-grid.html">Shop Grid</a></li>
+                                                <li><a href="shop-grid-left-sidebar.html">Shop Grid Left Sidebar</a></li>
+                                                <li><a href="shop-grid-right-sidebar.html">Shop Grid right Sidebar</a></li>
+                                                <li><a href="shop-single.html">Shop Single</a></li>
+                                                <li><a href="shop-single-right-sidebar.html">Shop Single Sidebar</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="drop"><a href="blog-grid.html">Blog</a>
+                                            <ul class="dropdown__menu">
+                                                <li><a href="blog-grid.html">Blog Grid</a></li>
+                                                <li><a href="blog-list.html">Blog List</a></li>
+                                                <li><a href="blog-list-right-sidebar.html">Blog List RightSidebar</a></li>
+                                                <li><a href="blog-list-left-sidebar.html">Blog List LeftSidebar</a></li>
+                                                <li><a href="blog-details.html">Blog Details</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Mobile Menu -->
+                    <div class="mobile-menu d-block d-lg-none">
+                        <div class="logo">
+                            <a href="index.html"><img src="images/logo/2.png" alt="logo"></a>
+                        </div>
+                        <a class="minicart-trigger" href="#">
+                            <i class="fa fa-shopping-basket"></i>
+                        </a>
+                    </div>
+                    <!-- Mobile Menu -->
+                </div>
+            </div>
+            <!-- End Mainmenu Area -->
         </header>
+        <!-- //Header -->
     {% endblock %}
     {% block content %}
     {% endblock %}
     {% block footer %}
-        <footer>
-            <div class="footer-top">
+        <!-- Footer Area -->
+        <footer id="footer" class="footer-area">
+            <div class="footer__wrapper poss-relative ftr__btm__image section-padding--lg bg--white">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-3 col-sm-6 col-xs-12">
-                            <div class="footer-item">
-                                <div class="title"><img src="{{ asset('front/images/logo.png') }}" alt="logo" class="img-responsive"></div>
-                                <div class="footer-about">
-                                    <p>Distily enable team driven services through extensive is a relatonships platforms with interactive content. Enthusiastically scale effective.</p>
-                                    <ul>
-                                        <li><span><i class="fa fa-home" aria-hidden="true"></i></span> New Chokoya Road, USA.</li>
-                                        <li><span><i class="fa fa-phone" aria-hidden="true"></i></span> +8801 923 970 212, 0125897</li>
-                                        <li><span><i class="fa fa-envelope-o" aria-hidden="true"></i></span> Contact@admin LabArtisan</li>
-                                        <li><span><i class="fa fa-globe" aria-hidden="true"></i></span> Email@admin LabArtisan</li>
-                                    </ul>
+                        <!-- Start Single Widget -->
+                        <div class="col-lg-3 col-md-6 col-sm-12 md-mt-40 sm-mt-40">
+                            <div class="footer__widget">
+                                <div class="footer__innner">
+                                    <div class="dcare__twit__wrap">
+                                        <!-- Start Single -->
+                                        <div class="dcare__twit d-flex">
+                                            <div class="dcare__twit__icon">
+                                                <i class="fa fa-twitter"></i>
+                                            </div>
+                                            <div class="dcare__twit__details">
+                                            </div>
+                                        </div>
+                                        <!-- End Single -->
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-                    </div><!-- row -->
-                </div><!-- container -->
-            </div><!-- footer top -->
-
+                        <!-- End Single Widget -->
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <div class="container">
+                    <div class="row align-items-center copyright__wrapper">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="coppy__right__inner">
+                                <p><i class="fa fa-copyright"></i>Copyright, 2018 <a href="#" target="_blank"> Devitems.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </footer>
-        <a class="page-scroll scroll-top" href="#scroll-top"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
+        <!-- //Footer Area -->
         {% endblock %}
         {% block javascripts %}
-            <!--Jquery.min js-->
-            <script src="{{ asset('newFront/js/jquery.min.js') }}"></script>
-
-            <!--popper js-->
-            <script src="{{ asset('newFront/js/popper.js') }}"></script>
-
-            <!--Tooltip js-->
-            <script src="{{ asset('newFront/js/tooltip.js') }}"></script>
-
-            <!--Bootstrap.min js-->
-            <script src="{{ asset('newFront/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
-
-            <!-- Jquery star rating-->
-            <script src="{{ asset('newFront/plugins/rating/jquery.rating-stars.js') }}"></script>
-
-            <!--Jquery.nicescroll.min js-->
-            <script src="{{ asset('newFront/plugins/nicescroll/jquery.nicescroll.min.js') }}"></script>
-
-            <!--Scroll-up-bar.min js-->
-            <script src="{{ asset('newFront/plugins/scroll-up-bar/dist/scroll-up-bar.min.js') }}"></script>
-
-            <!--mCustomScrollbar js-->
-            <script src="{{ asset('newFront/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js') }}"></script>
-            <!--Sidemenu js-->
-            <script src="{{ asset('newFront/plugins/toggle-menu/sidemenu.js') }}"></script>
-
-            <!--Formvalidation js-->
-            <script src="{{ asset('newFront/js/formvalidation.js') }}"></script>
-
-            <!--Scripts js-->
-            <script src="{{ asset('newFront/js/scripts.js') }}"></script>
-            <script src="{{ asset('newFront/js/jquery.showmore.js') }}"></script>
+            <script src="{{ asset('newFront/js/vendor/jquery-3.2.1.min.js') }}"></script>
+            <script src="{{ asset('newFront/js/popper.min.js') }}"></script>
+            <script src="{{ asset('newFront/js/bootstrap.min.js') }}"></script>
+            <script src="{{ asset('newFront/js/plugins.js') }}"></script>
+            <script src="{{ asset('newFront/js/active.js') }}"></script>
         {% endblock %}
+    </div>
     </body>
+
 </html>

@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    <!-- Start Bradcaump area -->
+    <div class="ht__bradcaump__area">
+        <div class="ht__bradcaump__container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="bradcaump__inner text-center">
+                            <h2 class="bradcaump-title">Liste passes</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Bradcaump area -->
+    <!-- Start Our Event Area -->
+    <section class="dcare__event__area bg--white section-padding--lg">
+        <div class="container">
+            <div class="row event-grid-page">
+                {% for p in participations %}
+                <!-- Start Single Event -->
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="event__list">
+                        <div class="event__thumb">
+                            <a href="event-details.html">
+                                <img src="{{ asset('back/' ~ p.event.brochure) }}" alt="event images">
+                            </a>
+                        </div>
+                        <div class="event__content">
+                            <div class="event__pub">
+                                <div class="event__date">
+                                    <span class="date">{{ p.nbPersonnes }}</span><span>Passes</span>
+                                </div>
+                                <ul class="event__time">
+                                    <li>{{ p.event.nom }}</li>
+                                </ul>
+                            </div>
+                            <ul class="event__btn">
+                                <li><a href="{{ path('supprimer_pass', { 'id':p.id }) }}">Annuler</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- End Our Event Area -->
+{% endblock %}

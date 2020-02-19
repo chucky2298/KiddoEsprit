@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+
+    <!-- Start Bradcaump area -->
+    <div class="ht__bradcaump__area">
+        <div class="ht__bradcaump__container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="bradcaump__inner text-center">
+                            <h2 class="bradcaump-title">{{ events.nom }}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Bradcaump area -->
+<!-- Start Class Details -->
+<section class="page-event-details bg--white section-padding--lg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="event-content-wrapper">
+
+                    <div class="event-section">
+                        <div class="enent__thumb">
+                            <img src="{{ asset('back/' ~ events.brochure) }}" alt="big images">
+                        </div>
+                    </div>
+                    <div class="event-section">
+                        <h2 class="event__information">EVENT DETAILS INFORMATION</h2>
+                        <div class="event__location">
+                            <ul>
+                                <li><span class="ti-location-pin"></span>{{ events.adresse }}</li>
+                                <li><span class="ti-time"></span>{{ events.date|date("m/d/Y") }}</li>
+                            </ul>
+                            <div class="event_map_marker">
+                                <div id="evnetmap"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Start Sidebar -->
+            <div class="col-lg-3">
+                <div class="sidebar__widgets sidebar--right">
+
+                    <!-- Single Widget -->
+                    <div class="single__widget search">
+                        <h4>Participer(max 5)</h4>
+                        {{ form_start(form) }}
+                        <div class="col-md-9">
+                            {{ form_widget(form.nbPersonnes) }}
+                        </div>
+
+                    </div>
+                    <button type="submit" value="Create" class="btn btn-primary mt-1 mb-0" >Participer</button>
+                    <!-- End Widget -->{{ form_end(form) }}
+                </div>
+            </div>
+            <!-- End Sidebar -->
+        </div>
+    </div>
+</section>
+<!-- End Class Details -->
+
+{% endblock %}

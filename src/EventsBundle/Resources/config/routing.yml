@@ -7,9 +7,18 @@ ajouter_event:
 afficher_event:
     path:     /afficherEvent
     defaults: { _controller: EventsBundle:Events:afficherEvent }
+afficher_eventFront:
+    path:     /afficherEventFront
+    defaults: { _controller: EventsBundle:Events:listerEvent }
+participer:
+    path:     /participer/{id}
+    defaults: { _controller: EventsBundle:Events:participer }
 supprimer_event:
     path:     /supprimerEvent/{id}
     defaults: { _controller: EventsBundle:Events:supprimerEvent }
+supprimer_pass:
+    path:     /supprimerPass/{id}
+    defaults: { _controller: EventsBundle:Events:supprimerPass }
 modifier_event:
     path:     /modifierEvent/{id}
     defaults: { _controller: EventsBundle:Events:modifierEvent }
@@ -22,13 +31,14 @@ afficher_category:
 supprimer_category:
     path:     /supprimerCategory/{id}
     defaults: { _controller: EventsBundle:Category:supprimerCategory }
-ajouter_participation:
-    path:     /ajouterParticipation
-    defaults: { _controller: EventsBundle:Pass:ajouterParticipations }
+liste_participations:
+    path:     /listeParticipations
+    defaults: { _controller: EventsBundle:Events:listerParticipations }
 afficher_participation:
     path:     /afficherParticipation
     defaults: { _controller: EventsBundle:Pass:afficherParticipations }
 supprimer_participation:
     path:     /supprimerParticipation/{id}
     defaults: { _controller: EventsBundle:Pass:supprimerParticipations }
+
 
