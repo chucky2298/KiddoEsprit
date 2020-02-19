@@ -1,5 +1,6 @@
 {% extends 'back.html.twig' %}
 {% block content %}
+
 <script src="{{ asset('jquery-2.2.1.min.js')}}"></script>
 {#<script>
     $(document).ready(function(){
@@ -32,8 +33,12 @@
                 {% if reclamation.etat ==0 %}
 
                 <div class="card-footer price-footer">
-                    <input type="textarea">
+                    <form  action="updateAction" method="get" >
+                        <input type="text" name="contenu">
+
+
                     <a class="btn btn-info mt-2 mb-2" type="submit" href="{{ path('reclamation_update', { 'id':reclamation.id }) }}">Marquer Traité</a>
+                    </form>
                 </div>
                 {% endif %}
 

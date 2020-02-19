@@ -39,6 +39,25 @@ class ReclamationController extends Controller
 
     public function updateAction(Request $request,$id)
     {
+        $usr= $this->get('security.token_storage')->getToken()->getUser();
+        $target=$usr->getEmail();
+        $username='atef.hafdhi@esprit.tn';
+        $contenu= $request->get('contenu');
+
+
+       $message= \Swift_Message::newInstance()
+                ->setSubject('Concernant votre réclamtion')
+                ->setFrom($username)
+                ->setTo($target)
+                ->setBody($contenu);
+            $this->get('mailer')->send($message);
+
+
+
+
+
+
+
         $entityManager = $this->getDoctrine()->getManager();
         $product = $entityManager->getRepository(Reclamation::class)->find($id);
         $product->setEtat(1);
