@@ -39,13 +39,16 @@ class ReclamationController extends Controller
 
     public function updateAction(Request $request,$id)
     {
+
         $usr= $this->get('security.token_storage')->getToken()->getUser();
         $target=$usr->getEmail();
         $username='atef.hafdhi@esprit.tn';
-        $contenu= $request->get('contenu');
+        $contenu="";
+        if ($request->isMethod('GET')) {
+            $contenu = $request->get('contenu');
+        }
 
-
-       $message= \Swift_Message::newInstance()
+            $message = \Swift_Message::newInstance()
                 ->setSubject('Concernant votre réclamtion')
                 ->setFrom($username)
                 ->setTo($target)
@@ -53,16 +56,11 @@ class ReclamationController extends Controller
             $this->get('mailer')->send($message);
 
 
+            $entityManager = $this->getDoctrine()->getManager();
+            $product = $entityManager->getRepository(Reclamation::class)->find($id);
+            $product->setEtat(1);
 
-
-
-
-
-        $entityManager = $this->getDoctrine()->getManager();
-        $product = $entityManager->getRepository(Reclamation::class)->find($id);
-        $product->setEtat(1);
-
-        $entityManager->flush();
+            $entityManager->flush();
 
 
         return $this->redirectToRoute("reclamation_affiche");

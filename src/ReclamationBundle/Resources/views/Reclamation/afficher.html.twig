@@ -33,11 +33,11 @@
                 {% if reclamation.etat ==0 %}
 
                 <div class="card-footer price-footer">
-                    <form  action="updateAction" method="get" >
+                    <form method="get" action="{{ path('reclamation_update', { 'id':reclamation.id }) }}">
                         <input type="text" name="contenu">
 
 
-                    <a class="btn btn-info mt-2 mb-2" type="submit" href="{{ path('reclamation_update', { 'id':reclamation.id }) }}">Marquer Traité</a>
+                    <button class="btn btn-info mt-2 mb-2" type="submit">Marquer Traité</button>
                     </form>
                 </div>
                 {% endif %}
