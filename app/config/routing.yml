@@ -30,3 +30,8 @@ gererenfant:
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
 
+fullcalendar_load_events:
+    path:     /fc-load-events
+    defaults:
+        _controller: AtelierBundle:Default:load
+

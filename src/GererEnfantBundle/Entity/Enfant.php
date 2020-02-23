@@ -178,5 +178,12 @@ class Enfant
     {
         return $this->dateNaissance;
     }
+
+    public function __toString()
+    {
+        return "".$this->getNom()." ".$this->getPrenom();
+    }
+
+
 }
 

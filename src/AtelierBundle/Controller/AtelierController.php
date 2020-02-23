@@ -1,20 +1,25 @@
 <?php
 
 namespace AtelierBundle\Controller;
+
+
 use AtelierBundle\Form\InscriptionType;
+use Doctrine\ORM\Mapping\Entity;
 use GererEnfantBundle\Entity\Enfant;
 use AtelierBundle\Repository\AtelierRepository;
 use AtelierBundle\Entity\Atelier;
 use AtelierBundle\Entity\Inscription;
 use AtelierBundle\Form\AtelierType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
 
-class AtelierController extends Controller
+class AtelierController extends AbstractController
 {
 
 
@@ -68,34 +73,39 @@ class AtelierController extends Controller
     public function inscrireatelierAction(Request $request,$id)
     {
 
-        $atelier=new Atelier();
-        $enfant=new Enfant();
-        $inscription= new Inscription();
 
 
         # $atelier=$this->getDoctrine()->getRepository("AtelierBundle:Atelier")->find($id);
         # $enfant = $this->getDoctrine()->getRepository("GererEnfantBundle:Enfant")->findAll();
-        $form = $this->createForm(InscriptionType::class,$inscription);
-
+        //$form = $this->createForm(InscriptionType::class,$inscription);
+        $form = $this->createFormBuilder()
+            ->add('enfant', EntityType::class,['class'=>Enfant::class])
+            ->add('save', SubmitType::class, ['label' => 'S inscrire'])
+            ->getForm();
 
 
         $form=$form->handleRequest($request);
+        $em = $this->getDoctrine()->getManager();
+        $atelier = $em->getRepository(Atelier::class)->find($id);
 
-
+          dump($atelier);
 
         if ($form->isSubmitted()) {
-            $m = $this->getDoctrine()->getManager();
-            var_dump($inscription);
-            $inscription->setAtelier($id);
-            $inscription->setEnfantid(5);
-            $m->persist($inscription);
-            $m->flush();
 
-            return $this->redirect($this->generateUrl('atelier_affiche'));
+            $inscription = new Inscription();
+            $enfant = ($form->getData()['enfant']);
+            dump($enfant->getId());
+            $inscription->setEnfantid($enfant->getId());
+            $inscription->setAtelier($em->getRepository(Atelier::class)->find($id)->getId());
+            /*$inscription->setAtelier($id);
+            $inscription->setEnfantid(5);*/
+            $em->persist($inscription);
+            $em->flush();
+            //return $this->redirect($this->generateUrl('atelier_affiche'));
         }
 
 
-        return $this->render('@Atelier/Atelier/final.html.twig', array('form' => $form->createView()
+        return $this->render('@Atelier/Atelier/final.html.twig', array('form' => $form->createView(),'atelier'=>$atelier
             // ...
         ));
 
@@ -108,7 +118,7 @@ class AtelierController extends Controller
         $form->handleRequest($request);
         if ($form->isSubmitted()) {
             $m = $this->getDoctrine()->getManager();
-            var_dump($atelier);
+            //var_dump($atelier);
             $m->persist($atelier);
             $m->flush();
 
@@ -119,7 +129,7 @@ class AtelierController extends Controller
         ));
     }
 
-public function calendrierAction(): Response
+public function calendrierAction()
 {
         return $this->render('@Atelier/Atelier/calendar.html.twig');
 

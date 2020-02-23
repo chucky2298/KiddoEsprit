@@ -48,7 +48,7 @@ class Atelier
     /**
      * @var \DateTime
      *@Assert\GreaterThan(propertyPath="dateDebut")
-     * @ORM\Column(name="date_fin", type="datetime")
+     * @ORM\Column(name="date_fin", type="datetime",nullable=true)
      */
     private $dateFin=null;
 

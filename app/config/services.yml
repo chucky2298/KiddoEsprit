@@ -13,7 +13,9 @@ services:
         # this mean s you cannot fetch services directly from the container via $container->get()
         # if you need to do this, you can override this setting on individual services
         public: false
-
+    AtelierBundle\EventListener\FullCalendarListenerr:
+        tags:
+            - { name: 'kernel.event_listener', event: 'fullcalendar.set_data', method: loadEvents }
     # makes classes in src/AppBundle available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
     AppBundle\:
@@ -36,3 +38,15 @@ services:
     AtelierBundle\Repository\AtelierRepository:
         autowire: true
         tags: ['doctrine.repository_service']
+
+
+    fullcalendar.service.serializer:
+        class: Toiba\FullCalendarBundle\Service\Serializer
+        public: false
+
+    fullcalendar.service.calendar:
+        class: Toiba\FullCalendarBundle\Service\Calendar
+        public: true
+        arguments:
+            - "@fullcalendar.service.serializer"
+            - "@event_dispatcher"
