@@ -54,6 +54,7 @@ class ReclamationController extends Controller
                 ->setTo($target)
                 ->setBody($contenu);
             $this->get('mailer')->send($message);
+        #{        var_dump($contenu).die();  #}
 
 
             $entityManager = $this->getDoctrine()->getManager();

@@ -29,6 +29,28 @@ class Note
     private $matiere;
 
     /**
+     * @return mixed
+     */
+    public function getEnfant()
+    {
+        return $this->Enfant;
+    }
+
+    /**
+     * @param mixed $Enfant
+     */
+    public function setEnfant($Enfant)
+    {
+        $this->Enfant = $Enfant;
+    }
+    /**
+     * @ORM\ManyToOne(targetEntity="Enfant")
+     * @ORM\JoinColumn(name="Enfant_id",referencedColumnName="id")
+
+     */
+    private $Enfant;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="Valeur", type="integer")

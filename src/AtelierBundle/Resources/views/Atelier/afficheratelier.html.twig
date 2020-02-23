@@ -1,0 +1,24 @@
+
+
+{% block title %}AtelierBundle:Atelier:Afficher{% endblock %}
+
+{% block body %}
+    <h1>Welcome to the Atelier:Afficher page</h1>
+    <a type="submit" href="{{ path('afficher_calendrier') }}">Calendrier</a>
+    <table border="1">
+        <tr><td>nom</td>Decription</td><td></td></tr>
+        {% for atelier in ateliers %}
+            <tr><td>{{ atelier.nom }}</td>
+            <td>{{ atelier.description }}</td>
+                <td></td>
+                <td><a class="btn btn-warning mt-2 mb-2" type="submit" href="{{ path('inscrire_atelier', { 'id':atelier.id }) }}">   Consulter     </td>
+
+
+            </tr>
+
+
+
+        {% endfor %}
+    </table>
+
+{% endblock %}

@@ -1,3 +1,7 @@
+atelier:
+    resource: "@AtelierBundle/Resources/config/routing.yml"
+    prefix:   /
+
 events:
     resource: "@EventsBundle/Resources/config/routing.yml"
     prefix:   /

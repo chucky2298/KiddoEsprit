@@ -1,5 +1,52 @@
 {% extends'base.html.twig' %}
-{% block body  %}
-    <h1> Modifier Note </h1>
-    {{ form (form) }}
+{% block content  %}
+    {{ form_start(form) }}
+<!-- Main wrapper -->
+<div class="wrapper" id="wrapper">
+    <!-- Start Bradcaump area -->
+    <div class="ht__bradcaump__area">
+        <div class="ht__bradcaump__container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="bradcaump__inner text-center">
+                            <h2 class="bradcaump-title">Modifier les Notes</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Bradcaump area -->
+    <!-- Start Contact Form -->
+
+    <h1> Modifier Les Notes </h1>
+    <section class="contact__box section-padding--lg bg-image--27">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-sm-12 col-md-12">
+                    <div class="section__title text-center">
+                        <h2 class="title__line">Modifier les notes</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt--80">
+                <div class="col-lg-12">
+                    <div class="contact-form-wrap">
+
+                        <div class="single-contact-form name">Matière:</p>
+                            {{ form_widget(form.matiere) }}
+                        </div>
+                        <div class="single-contact-form name"><p>Valeur:</p>
+                            {{ form_widget(form.valeur) }}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Contact Form -->
+</div>
+    {{ form_end(form) }}
 {% endblock %}

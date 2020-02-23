@@ -1,4 +1,4 @@
-# Learn more about services, parameters and containers at
+    # Learn more about services, parameters and containers at
 # https://symfony.com/doc/current/service_container.html
 parameters:
     #parameter_name: value
@@ -10,7 +10,7 @@ services:
         autowire: true
         # automatically registers your services as commands, event subscribers, etc.
         autoconfigure: true
-        # this means you cannot fetch services directly from the container via $container->get()
+        # this mean s you cannot fetch services directly from the container via $container->get()
         # if you need to do this, you can override this setting on individual services
         public: false
 
@@ -33,3 +33,6 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+    AtelierBundle\Repository\AtelierRepository:
+        autowire: true
+        tags: ['doctrine.repository_service']

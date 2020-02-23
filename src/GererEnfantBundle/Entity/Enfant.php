@@ -1,6 +1,7 @@
 <?php
 
 namespace GererEnfantBundle\Entity;
+
 use Doctrine\ORM\Mapping as ORM;
 use DateTime;
 
@@ -27,6 +28,28 @@ class Enfant
      * @ORM\Column(name="nom", type="string", length=255)
      */
     private $nom;
+
+    /**
+     * @return int
+     */
+    public function getParentId()
+    {
+        return $this->parent_id;
+    }
+
+    /**
+     * @param int $parent_id
+     */
+    public function setParentId($parent_id)
+    {
+        $this->parent_id = $parent_id;
+    }
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="parent_id", type="integer")
+     */
+    private $parent_id;
 
     /**
      * @var string
@@ -74,29 +97,8 @@ class Enfant
         $this->Note_id = $Note_id;
     }
 
-    /**
-     * @ORM\ManyToOne(targetEntity="Note")
-     * @ORM\JoinColumn(name="Note_id",referencedColumnName="id")
-     * @ORM\JoinColumn(name="Parent_id",referencedColumnName="id")
 
-     */
-    private $Parent_id;
 
-    /**
-     * @return mixed
-     */
-    public function getParentId()
-    {
-        return $this->Parent_id;
-    }
-
-    /**
-     * @param mixed $Parent_id
-     */
-    public function setParentId($Parent_id)
-    {
-        $this->Parent_id = $Parent_id;
-    }
 
   private $Note_id;
 

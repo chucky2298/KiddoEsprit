@@ -1,31 +1,31 @@
 <?php
 
-namespace GererEnfantBundle\Form;
-
-
+namespace AtelierBundle\Form;
+use GererEnfantBundle\Entity\Enfant;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
-class NoteType extends AbstractType
+class InscriptionType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('matiere')
-            ->add('valeur')
-            ->add('attribuer',SubmitType::class);
-        ;
+        $builder
+            ->add('atelier')
+            ->add('enfantid',EntityType::class,array('class'=>Enfant::class,'choice_label'=>'id','multiple'=>false))
+            ->add('ajouter',SubmitType::class);
     }/**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'GererEnfantBundle\Entity\Note'
+            'data_class' => 'AtelierBundle\Entity\Inscription'
         ));
     }
 
@@ -34,7 +34,7 @@ class NoteType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'gererenfantbundle_note';
+        return 'atelierbundle_inscription';
     }
 
 

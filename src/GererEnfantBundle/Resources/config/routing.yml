@@ -6,9 +6,13 @@ ajoutEnfant:
     path:     /ajoutEnfant
     defaults: { _controller: GererEnfantBundle:Enfant:ajoutEnfant }
 
-afficheEnfant:
-    path:     /afficheEnfant
-    defaults: { _controller: GererEnfantBundle:Enfant:afficheEnfant }
+message:
+    path:     /message
+    defaults: { _controller: GererEnfantBundle:Enfant:message }
+
+afficheEnfantBack:
+    path:     /afficheEnfantBack
+    defaults: { _controller: GererEnfantBundle:Enfant:afficheEnfantBack }
 
 updateEnfant:
     path:     /updateEnfant/{id}
@@ -19,7 +23,7 @@ deleteEnfant:
     defaults: { _controller: GererEnfantBundle:Enfant:deleteEnfant }
 
 ajoutNote:
-    path:     /ajoutNote
+    path:     /ajoutNote/{id}
     defaults: { _controller: GererEnfantBundle:Note:ajoutNote}
 
 afficheNote:

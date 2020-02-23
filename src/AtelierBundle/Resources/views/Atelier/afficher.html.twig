@@ -1,0 +1,22 @@
+
+
+{% block title %}AtelierBundle:Atelier:Afficher{% endblock %}
+
+{% block body %}
+<h1>Welcome to the Atelier:Afficher page</h1>
+    <table border="1">
+        <tr><td>nom</td><td>Description</td><td></td></tr>
+    {% for atelier in ateliers %}
+    <tr><td>{{ atelier.nom }}</td>
+        <td>{{ atelier.description }}</td>
+    <td><a class="btn btn-warning mt-2 mb-2" type="submit" href="{{ path('atelier_delete', { 'id':atelier.id }) }}">         supprimer       </td>
+
+
+    </tr>
+
+
+
+{% endfor %}
+    </table>
+
+{% endblock %}

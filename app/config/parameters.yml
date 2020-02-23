@@ -9,6 +9,4 @@ parameters:
     mailer_host: smtp.gmail.com
     mailer_user: atef.hafdhi@esprit.tn
     mailer_password: atoufatoisthebest
-    mailer_port: 465
-    mailer_encryption: ssl
     secret: ThisTokenIsNotSoSecretChangeIt

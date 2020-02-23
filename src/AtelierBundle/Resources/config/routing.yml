@@ -1,0 +1,29 @@
+atelier_homepage:
+    path:     /
+    defaults: { _controller: AtelierBundle:Default:index }
+ajoutAtelier:
+    path:     /ajoutAtelier
+    defaults: { _controller: AtelierBundle:Atelier:Ajout}
+
+atelier_affiche:
+    path:     /afficherAtelierback
+    defaults: { _controller: AtelierBundle:Atelier:Afficher}
+
+atelier_delete:
+    path:     /supprimerAtelier{id}
+    defaults: { _controller: AtelierBundle:Atelier:delete}
+
+atelier_inscrire:
+    path:     /afficherAtelierfront
+    defaults: { _controller: AtelierBundle:Atelier:afficheratelier}
+
+inscrire_atelier:
+    path:     /inscrireAtelier{id}
+    defaults: { _controller: AtelierBundle:Atelier:inscrireatelier}
+
+afficher_calendrier:
+    path:     /calendrier
+    defaults: { _controller: AtelierBundle:Atelier:calendrier}
+
+
+

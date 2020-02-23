@@ -1,3 +1,22 @@
+{% extends'base.html.twig' %}
+{% block content  %}
+<!-- Main wrapper -->
+<div class="wrapper" id="wrapper">
+    <!-- Start Bradcaump area -->
+    <div class="ht__bradcaump__area">
+        <div class="ht__bradcaump__container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="bradcaump__inner text-center">
+                            <h2 class="bradcaump-title">Liste des enfants</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Bradcaump area -->
 <h2> Liste des enfants </h2>
 {% for e in Enfant  %}
 <ul>
@@ -8,7 +27,6 @@
     {%  if e.Noteid !=null %}
     <li>Note : {{ e.Noteid }} </li>
 {%  else %}
-    <li>Note : </li>
     {% endif %}
 </ul>
     <a href="{{ path("updateEnfant",{'id' : e.id}) }}">
@@ -16,4 +34,8 @@
 
     <a href="{{ path("deleteEnfant",{'id' : e.id}) }}">
         <button type="button" class="btn btn-sm btn-outline-secondary">Supprimer</button> </a>
+
 {%  endfor %}
+</div>
+
+{% endblock %}
