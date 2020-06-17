@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane hbarPolicy="NEVER" prefHeight="600.0" prefWidth="1366.0" stylesheets="@../utils/listposts.css" vbarPolicy="ALWAYS" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.DashboardGUIController">
+   <content>
+      <BorderPane fx:id="borderpane" prefWidth="1366.0" stylesheets="@../utils/listposts.css">
+         <top>
+            <HBox prefHeight="81.0" prefWidth="200.0" styleClass="nav-top" stylesheets="@../utils/listposts.css" BorderPane.alignment="CENTER">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="88.0" prefWidth="291.0" styleClass="logo" text="WORLDFIRENDSHIP">
+                     
+                  </Button>
+                  <HBox prefHeight="81.0" prefWidth="1074.0" styleClass="nav-top-right" />
+               </children>
+            </HBox>
+         </top>
+         <left>
+            <VBox prefHeight="669.0" prefWidth="291.0" styleClass="sidebar" BorderPane.alignment="CENTER">
+               <children>
+                  <Label prefHeight="48.0" prefWidth="292.0" style="-fx-background-color: #1f2b36;" text="Navigation">
+                     
+                  </Label>
+                  <JFXButton onMouseClicked="#homedashboard" prefHeight="44.0" prefWidth="291.0" styleClass="link-button" text="Dashboard">
+                     
+                  </JFXButton>
+                  <JFXButton layoutX="10.0" layoutY="78.0" onMouseClicked="#evenement" prefHeight="44.0" prefWidth="291.0" styleClass="link-button" text="Evenement">
+                     
+                  </JFXButton>
+                  <JFXButton layoutX="10.0" layoutY="128.0" onMouseClicked="#produit" prefHeight="44.0" prefWidth="291.0" styleClass="link-button" text="Produit">
+                     
+                  </JFXButton>
+                  <JFXButton layoutX="10.0" layoutY="178.0" onMouseClicked="#experience" prefHeight="44.0" prefWidth="291.0" styleClass="link-button" text="Experiences">
+                     
+                        
+                  </JFXButton>
+                  <JFXButton layoutX="10.0" layoutY="228.0" onMouseClicked="#CategorieForum" prefHeight="44.0" prefWidth="291.0" styleClass="link-button" text="Categorie Forum">
+                     
+                        
+                  </JFXButton>
+                  <JFXButton onMouseClicked="#ListQuestion" prefHeight="50.0" prefWidth="293.0" styleClass="dropdown-button" text="List Question">
+                    
+                  </JFXButton>
+                  <JFXButton layoutX="10.0" layoutY="308.0" onMouseClicked="#ListComentaire" prefHeight="50.0" prefWidth="293.0" styleClass="dropdown-button" text="List Comentaire" />
+                  <JFXButton onMouseClicked="#commande" prefHeight="44.0" prefWidth="291.0" styleClass="link-button" text="Commande">
+                     
+                  </JFXButton>
+               </children>
+            </VBox>
+         </left>
+      </BorderPane>
+   </content>
+</ScrollPane>
