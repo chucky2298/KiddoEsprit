@@ -17,25 +17,18 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.shape.Circle;
 
 /**
  * FXML Controller class
  *
- * @author Moez
+ * @author Takwa
  */
 public class DashboardGUIController implements Initializable {
-public static Utilisateur recupererUtilisateurConnecte;
-
     @FXML
     private BorderPane borderpane;
-    @FXML
-    private Circle circleImage;
-    @FXML
-    private Circle notification;
-
-    /**
-     * Initializes the controller class.
+    
+   public static Utilisateur recupererUtilisateurConnecte;
+     /* Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -60,23 +53,21 @@ public static Utilisateur recupererUtilisateurConnecte;
 
     @FXML
     private void CategorieForum(MouseEvent event) {
-        loadUI("CategorieForum");
+         loadUI("List");
     }
 
     @FXML
-    private void ListQuestion(MouseEvent event) {
-        loadUI("ListQuestion");
+    private void ListParent(MouseEvent event) {
+       
     }
 
     @FXML
     private void ListComentaire(MouseEvent event) {
-        loadUI("ListComentaire");
     }
 
     @FXML
     private void commande(MouseEvent event) {
     }
-    
     
     private void loadUI(String ui) {
 

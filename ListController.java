@@ -5,199 +5,223 @@
  */
 package pidev;
 
-import entite.categorie;
-import entite.forum;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.Dialog;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import service.ServiceLogin;
+import service.UtilisateurService;
+import entite.Utilisateur;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.control.Dialog;
 import javafx.stage.StageStyle;
-import service.CategorieService;
-import service.ForumService;
+import javax.swing.JFileChooser;
+import utils.DataSource;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+
 
 /**
+ * FXML Controller class
  *
- * @author Moez
+ * @author Takwa
  */
 public class ListController implements Initializable {
-
-    @FXML
-    private TableView<categorie> listeCategorie;
-
-    @FXML
-    private TableColumn<?, ?> nom;
-
-    @FXML
-    private TableColumn<?, ?> id;
-    
-    @FXML
-    private TableColumn<?, ?> title;
-    @FXML
-    private TableColumn<?, ?> description;
-    @FXML
-    private TableColumn<?, ?> date;
-    public TableView<forum> listPosts;
-
-    public static categorie e = new categorie();
-    CategorieService categorieService = new CategorieService();
     @FXML
     private BorderPane borderpane;
-    ForumService forumService = new ForumService();
+    @FXML
+    private TableView<Utilisateur> listParents;
+    private TableColumn<?, ?> id;
+    @FXML
+    private TableColumn<?, ?> nom;
+    @FXML
+    private TableColumn<?, ?> prenom;
+    @FXML
+    private TableColumn<?, ?> email;
+    @FXML
+    private TableColumn<?, ?> username;
+    
+     private XSSFWorkbook wb;
+    private XSSFSheet sheet;
+    private XSSFRow header;
+    private ResultSet rs = null;
 
+    ServiceLogin utilisateurService = new ServiceLogin();
+   
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-         ForumService forumService = new ForumService();
-        ArrayList arrayList1 = (ArrayList) forumService.ListQuestion();
+      Connection con = null;
+         ServiceLogin utilisateurService = new  ServiceLogin();
+        ArrayList arrayList = (ArrayList) utilisateurService.ListUtilisateur();
         
    
         
-        ObservableList observableList1 = FXCollections.observableArrayList(arrayList1);
-        
-        id.setCellValueFactory(new PropertyValueFactory<>("id"));
-        
-        title.setCellValueFactory(new PropertyValueFactory<>("title"));
-        description.setCellValueFactory(new PropertyValueFactory<>("description"));
-        date.setCellValueFactory(new PropertyValueFactory<>("date"));
-        
-        listPosts.setItems(observableList1);
-        
-        
-        
-        
-        
-        
-        ///////////////////////////
-
-        CategorieService categorieService = new CategorieService();
-        ArrayList arrayList = (ArrayList) categorieService.selectAll2();
-
         ObservableList observableList = FXCollections.observableArrayList(arrayList);
-
-        id.setCellValueFactory(new PropertyValueFactory<>("id"));
+        ;
+    
+//        id.setCellValueFactory(new PropertyValueFactory<>("id_Utilisateur"));
         nom.setCellValueFactory(new PropertyValueFactory<>("nom"));
-        listeCategorie.setItems(observableList);
+        prenom.setCellValueFactory(new PropertyValueFactory<>("prenom"));
+        email.setCellValueFactory(new PropertyValueFactory<>("email"));
+        username.setCellValueFactory(new PropertyValueFactory<>("nom_Utilisateur"));
+        
+        
+        listParents.setItems(observableList);
 
-        listeCategorie.setOnMouseClicked((MouseEvent event) -> {
-            categorie cat = listeCategorie.getSelectionModel().getSelectedItem();
-            try {
-                afficherParCategorie(event, cat);
-            } catch (IOException ex) {
-                Logger.getLogger(ListController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-        });
-
-    }
-
+        // TODO
+    }    
+    
     private int index() {
-        int selectedItem = listeCategorie.getSelectionModel().getSelectedItem().getId();
-        int selectedIndex = listeCategorie.getSelectionModel().getSelectedIndex();
+        int selectedItem = listParents.getSelectionModel().getSelectedItem().getId_Utilisateur();
+        int selectedIndex = listParents.getSelectionModel().getSelectedIndex();
         System.out.println(selectedItem);
         return selectedItem;
     }
-
-    private void afficherParCategorie(MouseEvent event, categorie cat) throws IOException {
-        ForumService fs = new ForumService();
-        categorie c = listeCategorie.getSelectionModel().getSelectedItem();
-        if (event.getButton().equals(MouseButton.PRIMARY)) {
-            if (event.getClickCount() == 2) {
-
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("ListPosts.fxml"));
-                Parent root = loader.load();
-                ListPostsController controller = (ListPostsController) loader.getController();
-                controller.idCategorieRecuperer = c.getId();
-
-                controller.listPosts.getItems().setAll(fs.selectAll(c.getId()));
-                /*
-                Stage primaryStage = new Stage();
-                Scene scene = new Scene(root);
-                scene.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
-                primaryStage.setScene(scene);
-                primaryStage.show();
-                 */
-                borderpane.setCenter(root);
-            }
-        }
-
-    }
     
     
-    /////////////////////////
-    private int index1() {
-        int selectedItem = listPosts.getSelectionModel().getSelectedItem().getId();
-        int selectedIndex = listPosts.getSelectionModel().getSelectedIndex();
-        System.out.println(selectedItem);
-        return selectedItem;
-    }
-
     @FXML
     private void supprimer(ActionEvent event) {
-        int x = index1();
+        int x = index();
         Alert a1 = new Alert(Alert.AlertType.WARNING);
-        a1.setTitle("Supprimer post");
-        a1.setContentText("Vous voulez vraiment supprimer cet post?");
+        a1.setTitle("Supprimer parent");
+        a1.setContentText("Vous voulez vraiment supprimer ce parent ?");
         Optional<ButtonType> result = a1.showAndWait();
         if (result.get() == ButtonType.OK) {
-            forumService.supprimer(x);
+            utilisateurService.supprimer(x);
             Alert a2 = new Alert(Alert.AlertType.INFORMATION);
-            a2.setTitle("Supprimer post");
-            a2.setContentText("Post supprimé avec succés!");
+            a2.setTitle("Supprimer parent");
+            a2.setContentText("Parent supprimé avec succés!");
             a2.show();
 
-            listPosts.getItems().clear();
-            listPosts.getItems().addAll(forumService.ListQuestion());
+            listParents.getItems().clear();
+            listParents.getItems().addAll(utilisateurService.ListUtilisateur());
 
         } else {
             a1.close();
         }
     }
-@FXML
-    private void modifier(ActionEvent event) throws IOException {
 
-        forum fo = listPosts.getSelectionModel().getSelectedItem();
-        FXMLLoader Loader = new FXMLLoader();
-        Loader.setLocation(getClass().getResource("ModifierPost.fxml"));
-        Parent p = Loader.load();
-
-        ModifierPostController display = Loader.getController();
-        display.setForum(fo);
-        Dialog dialog = new Dialog();
-        dialog.getDialogPane().setContent(p);
-        dialog.initStyle(StageStyle.UNDECORATED);
-        dialog.show();
+    @FXML
+    private void modifier(ActionEvent event) {
+        try {
+            Utilisateur u = listParents.getSelectionModel().getSelectedItem();
+            FXMLLoader Loader = new FXMLLoader();
+            Loader.setLocation(getClass().getResource("ModifierUnUtilisateur.fxml"));
+            Parent p = Loader.load();
+            ModifierUtilisateurController display = Loader.getController();
+            display.setUtilisateur(u);
+            Dialog dialog = new Dialog();
+            dialog.getDialogPane().setContent(p);
+            dialog.initStyle(StageStyle.UNDECORATED);
+            dialog.show();
+        } catch (IOException ex) {
+            Logger.getLogger(ListController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
-    private void ajouter(ActionEvent event) throws IOException {
+    private void exporter(ActionEvent event) throws SQLException, IOException {
+        String role = "a:1:{i:0;s:11:\"ROLE_PARENT\";}";
+        String query = "select * from `fos_user` where roles =" + "'" + role + "'";
+        Connection con = ServiceLogin.creationConnexion();
+        String qry = "select * from fos_user where roles =" + "'" + role + "'";
+        ResultSet rs = con.createStatement().executeQuery(qry);
+        System.out.println("kk");
+        int i = 1;
+        wb = new XSSFWorkbook();
+        System.out.println("n");
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        sheet = wb.createSheet("Parents Details");
+        System.out.println("d");
+        header = sheet.createRow(0);
+        System.out.println("f");
+        header.createCell(1).setCellValue("Nom");
+        header.createCell(2).setCellValue("Prénom");
+        header.createCell(3).setCellValue("Nom d'utilisateur ");
+        header.createCell(4).setCellValue("E-Mail");
+        header.createCell(5).setCellValue("Status");
+        System.out.println("4");
+        while (rs.next()) {
+            System.out.println("9");
+            XSSFRow row = sheet.createRow(i);
+            System.out.println("o");
+            row.createCell(0).setCellValue(rs.getInt("id"));
+            System.out.println("qs");
+            row.createCell(1).setCellValue(rs.getString("nom"));
+            row.createCell(2).setCellValue(rs.getString("prenom"));
+            row.createCell(3).setCellValue(rs.getString("username"));
+            row.createCell(4).setCellValue(rs.getString("email"));
+  
+            int enabled = rs.getInt("enabled");
+            String state;
+            if (enabled == 1) {
+                state = "Activer";
+            } else {
+                state = "Désactiver";
+            }
+            row.createCell(5).setCellValue(state);
+            i++;
+        }
+        JFileChooser chooser = new JFileChooser();
+        chooser.setCurrentDirectory(new java.io.File("."));
+        chooser.setDialogTitle("choose title");
+        chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        chooser.setAcceptAllFileFilterUsed(false);
+        if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+            System.out.println("getCurrentDirectory(): " + chooser.getCurrentDirectory());
+            System.out.println("getSelectedFile() : " + chooser.getSelectedFile());
+            System.out.println("dd");
+            
+       
+            
+            FileOutputStream fileOut = new FileOutputStream(chooser.getSelectedFile() + "\\Parents.xlsx");
+            System.out.println("qs");
+            wb.write(fileOut);
+            fileOut.close();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText(null);
+            alert.setContentText("La liste des Parents en format Exel a été exporter .");
+            alert.showAndWait();
+            
+            rs.close();
+        } else {
+             System.out.println("No Selection ");
+        }
 
-        Parent root = FXMLLoader.load(getClass().getResource("AjouterPosts.fxml"));
-        Dialog dialog = new Dialog();
-        dialog.getDialogPane().setContent(root);
-        dialog.initStyle(StageStyle.UNDECORATED);
-        dialog.show();
+    }
     }
 
-}

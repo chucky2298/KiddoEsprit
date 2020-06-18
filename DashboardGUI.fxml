@@ -14,7 +14,7 @@
          <top>
             <HBox prefHeight="81.0" prefWidth="200.0" styleClass="nav-top" stylesheets="@../utils/listposts.css" BorderPane.alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="88.0" prefWidth="291.0" styleClass="logo" text="WORLDFIRENDSHIP">
+                  <Button mnemonicParsing="false" prefHeight="88.0" prefWidth="291.0" styleClass="logo" text="KIDDO">
                      
                   </Button>
                   <HBox prefHeight="81.0" prefWidth="1074.0" styleClass="nav-top-right" />
@@ -33,24 +33,20 @@
                   <JFXButton layoutX="10.0" layoutY="78.0" onMouseClicked="#evenement" prefHeight="44.0" prefWidth="291.0" styleClass="link-button" text="Evenement">
                      
                   </JFXButton>
-                  <JFXButton layoutX="10.0" layoutY="128.0" onMouseClicked="#produit" prefHeight="44.0" prefWidth="291.0" styleClass="link-button" text="Produit">
+                  <JFXButton layoutX="10.0" layoutY="128.0" onMouseClicked="#produit" prefHeight="44.0" prefWidth="291.0" styleClass="link-button" text="Blog">
                      
                   </JFXButton>
-                  <JFXButton layoutX="10.0" layoutY="178.0" onMouseClicked="#experience" prefHeight="44.0" prefWidth="291.0" styleClass="link-button" text="Experiences">
+                  <JFXButton layoutX="10.0" layoutY="178.0" onMouseClicked="#experience" prefHeight="44.0" prefWidth="291.0" styleClass="link-button" text="Gestion enfant">
+                     </JFXButton>
+                  <JFXButton layoutX="10.0" layoutY="178.0" onMouseClicked="#experience" prefHeight="44.0" prefWidth="291.0" styleClass="link-button" text="Gestion notes ">
+                        
+                  </JFXButton>
+                  <JFXButton layoutX="10.0" layoutY="228.0" onMouseClicked="#CategorieForum" prefHeight="44.0" prefWidth="291.0" styleClass="link-button" text="Gestion parent">
                      
                         
                   </JFXButton>
-                  <JFXButton layoutX="10.0" layoutY="228.0" onMouseClicked="#CategorieForum" prefHeight="44.0" prefWidth="291.0" styleClass="link-button" text="Categorie Forum">
-                     
-                        
-                  </JFXButton>
-                  <JFXButton onMouseClicked="#ListQuestion" prefHeight="50.0" prefWidth="293.0" styleClass="dropdown-button" text="List Question">
-                    
-                  </JFXButton>
-                  <JFXButton layoutX="10.0" layoutY="308.0" onMouseClicked="#ListComentaire" prefHeight="50.0" prefWidth="293.0" styleClass="dropdown-button" text="List Comentaire" />
-                  <JFXButton onMouseClicked="#commande" prefHeight="44.0" prefWidth="291.0" styleClass="link-button" text="Commande">
-                     
-                  </JFXButton>
+                  
+                  
                </children>
             </VBox>
          </left>

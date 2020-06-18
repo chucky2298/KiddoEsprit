@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="553.0" prefWidth="598.0" styleClass="content-dialog" stylesheets="@../styling/ajouterStyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.ModifierUtilisateurController">
+   <children>
+      <HBox prefHeight="32.0" prefWidth="937.0" styleClass="top-dialog">
+         <VBox.margin>
+            <Insets left="-15.0" right="-15.0" top="-15.0" />
+         </VBox.margin>
+         <children>
+            <Button fx:id="btn_close" mnemonicParsing="false" onAction="#Close_btn" prefHeight="26.0" prefWidth="48.0" styleClass="button-dialog-close" text="X">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+      <HBox prefHeight="88.0" prefWidth="555.0" styleClass="header-dialog">
+         <children>
+            <Label minWidth="-Infinity" prefHeight="38.0" prefWidth="529.0" text="Modification des information  d'un Utilisateur" textAlignment="JUSTIFY" textFill="#429aff">
+               <font>
+                  <Font name="Chrisye" size="26.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="424.0" prefWidth="566.0">
+         <children>
+            <VBox fx:id="bp" prefHeight="423.0" prefWidth="377.0" styleClass="content-dialog-left">
+               <children>
+                  <JFXTextField fx:id="nom_utilisateur" focusColor="#d1d1d1" prefHeight="40.0" prefWidth="336.0" promptText="Nom" unFocusColor="#d1d1d1">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <Label fx:id="errors_nom" prefHeight="15.0" prefWidth="442.0" styleClass="label-errors">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin></Label>
+                  <JFXTextField fx:id="prenom_utilisateur" focusColor="#d1d1d1" layoutX="35.0" layoutY="30.0" prefHeight="40.0" prefWidth="336.0" promptText="Preénom" unFocusColor="#d1d1d1" />
+                  <Label fx:id="errors_prenom" layoutX="35.0" layoutY="58.0" prefHeight="15.0" prefWidth="442.0" styleClass="label-errors" />
+                  <JFXTextField fx:id="email_utilisateur" focusColor="#d1d1d1" layoutX="35.0" layoutY="73.0" prefHeight="40.0" prefWidth="336.0" promptText="E-mail" unFocusColor="#d1d1d1" />
+                  <Label fx:id="errors_email" layoutX="35.0" layoutY="101.0" prefHeight="15.0" prefWidth="442.0" styleClass="label-errors" />
+                  <JFXTextField fx:id="username_utilisateur" focusColor="#d1d1d1" layoutX="35.0" layoutY="116.0" prefHeight="40.0" prefWidth="336.0" promptText="Nom d'utilisateur" unFocusColor="#d1d1d1" />
+                  <Label fx:id="errors_username" layoutX="35.0" layoutY="144.0" prefHeight="15.0" prefWidth="442.0" styleClass="label-errors" />
+                  <JFXPasswordField fx:id="miotdepasse_utilisateur" editable="false" focusColor="#d1d1d1" promptText="Mot de passe" unFocusColor="#d1d1d1" />
+                  <Label fx:id="errors_motdepasse" layoutX="35.0" layoutY="144.0" prefHeight="15.0" prefWidth="442.0" styleClass="label-errors" />
+                  <HBox prefHeight="40.0" prefWidth="327.0">
+                     <children>
+                        <Label prefHeight="40.0" prefWidth="129.0" text="Cette utilisateur est :" />
+                        <Label fx:id="statut_utilisateur_label" prefHeight="42.0" prefWidth="150.0" />
+                     </children>
+                  </HBox>
+                  <RadioButton fx:id="satatus_activer" mnemonicParsing="false" prefHeight="23.0" prefWidth="113.0" text="Activer">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="groupe1" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="status_desactiver" layoutX="35.0" layoutY="293.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="108.0" text="Desactiver" toggleGroup="$groupe1">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </RadioButton>
+                  <Label fx:id="errors_satus" layoutX="35.0" layoutY="78.0" prefHeight="12.0" prefWidth="228.0" styleClass="label-errors">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="errors_globale" prefHeight="26.0" prefWidth="327.0" styleClass="label-errors" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" minWidth="-Infinity" prefHeight="364.0" prefWidth="171.0" styleClass="content-dialog-right">
+               <children>
+                  <HBox alignment="CENTER" minWidth="-Infinity" prefHeight="127.0" prefWidth="107.0" styleClass="content-h-uplaod">
+                     <children>
+                        <JFXButton fx:id="modifier_utilisateur_btn" onAction="#ModifierUtilisateur" prefHeight="49.0" prefWidth="120.0" style="-fx-background-color: #4099ff;" styleClass="button-save" text="Modifier">
+                           <font>
+                              <Font name="Century Gothic" size="17.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <JFXTextField fx:id="id_utilisateur" cacheShape="false" centerShape="false" editable="false" focusColor="#405aa800" focusTraversable="false" prefHeight="28.0" prefWidth="26.0" scaleShape="false" unFocusColor="#85545400" visible="false" />
+   </children>
+</VBox>
